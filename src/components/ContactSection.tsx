@@ -384,7 +384,7 @@ export const ContactSection: React.FC = () => {
                     className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-xs font-bold bg-gradient-to-r from-[#00D4FF] to-[#38BDF8] text-[#0B192C] hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all duration-300 disabled:opacity-50 cursor-pointer"
                   >
                     <Send className="w-4 h-4" />
-                    <span>{loading ? '백엔드 서버로 전송 처리 중...' : '백엔드 서버로 메시지 전송하기'}</span>
+                    <span>{loading ? '서버로 전송 처리 중...' : '서버로 메시지 전송하기'}</span>
                   </button>
                 </form>
               )}

@@ -52,7 +52,7 @@ async function startServer() {
       id: newMessage.id,
       timestamp: newMessage.createdAt,
       mailSentStatus: newMessage.mailSentStatus,
-      message: "메시지가 성공적으로 수신되어 백엔드 서버 메시지함에 저장되었습니다."
+      message: "메시지가 성공적으로 수신되어 서버 메시지함에 저장되었습니다."
     });
   });
 
