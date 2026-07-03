@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/contact/messages/:id", "destination": "/api/contact?id=:id" },
+    { "source": "/api/contact/messages", "destination": "/api/contact?action=messages" }
+  ]
+}
