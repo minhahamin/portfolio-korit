@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { createContactMessage, listContactMessages, deleteContactMessage } from "../server/contactStore";
+import { createContactMessage, listContactMessages, deleteContactMessage } from "../server/contactStore.js";
 
 // Handles POST /api/contact (create), and — via vercel.json rewrites —
 // GET /api/contact/messages (?action=messages) and DELETE /api/contact/messages/:id (?id=...)
