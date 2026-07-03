@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
               <Terminal className="w-3.5 h-3.5 text-[#00D4FF]" />
             </div>
             <span className="font-heading font-bold text-white text-sm">
-              Log-Tracker Portfolio
+              HongMinHa Portfolio
             </span>
             <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded">
               SYSTEM ONLINE
