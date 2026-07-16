@@ -386,6 +386,27 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
         tag: "상세 & 실시간 예약"
       }
     ]
+  },
+  {
+    id: "project-memomate",
+    title: "💗 MemoMate AI (메모메이트 - AI 회의록 요약기)",
+    subtitle: "회의록 원문을 붙여넣으면 Gemini API가 요약, 핵심 내용, Action Item, 담당자, 마감일, 이메일 초안까지 자동으로 정리해주는 귀여운 메모 카드형 회의록 요약 서비스",
+    role: "풀스택 개발자 (개인 프로젝트)",
+    period: "개인 프로젝트",
+    summary: "Streamlit 기반 UI에 Gemini API(google-genai)를 연동해, 회의록 원문 하나로 회의 요약 · 핵심 내용 · Action Item · 담당자 · 마감일 · 공유용 이메일 초안까지 자동 추출하는 서비스입니다. AI 제공자를 코드 수정 없이 환경변수로 교체할 수 있도록 LLMClient 인터페이스로 추상화하여 설계했습니다.",
+    architectureHighlights: [
+      "Streamlit 기반 UI 구축 및 회의록 파싱 결과를 핑크 파스텔 메모 카드로 렌더링",
+      "LLMClient 인터페이스로 AI 제공자를 추상화, MEMOMATE_PROVIDER 환경변수만으로 손쉬운 전환 구조 설계 (배포 환경은 Gemini API 사용)",
+      "회의 요약 / 핵심 내용 / Action Item / 담당자 / 마감일 / 이메일 초안을 한 번에 추출하는 프롬프트 엔지니어링",
+      "결과를 핑크 메모 카드 PNG 이미지로 내보내는 image_export 모듈 구현",
+      "Streamlit Community Cloud 배포로 별도 서버 구축 없이 즉시 서비스 가능한 형태로 완성"
+    ],
+    logObservabilityUsed: ["Streamlit Cloud App Log", "Gemini API Response 파싱 로그"],
+    keyOutcome: "회의록 → AI 메모 카드 자동 변환 개인 프로젝트 배포 완료 / Gemini API 기반 요약·Action Item 추출 서비스 운영 중",
+    techStack: ["Full Stack", "Python", "Streamlit", "Gemini API", "google-genai", "Prompt Engineering"],
+    githubUrl: "https://github.com/minhahamin",
+    demoUrl: "https://meetingsummarizer-rifrx6v6qkrtpnktljumcx.streamlit.app/",
+    featured: true
   }
 ];
 
