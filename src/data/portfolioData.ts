@@ -407,6 +407,27 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     githubUrl: "https://github.com/minhahamin",
     demoUrl: "https://meetingsummarizer-rifrx6v6qkrtpnktljumcx.streamlit.app/",
     featured: true
+  },
+  {
+    id: "project-deep-learning-portfolio",
+    title: "🧠 Deep Learning Portfolio (CNN 손글씨 분류 & 수요 회귀 예측)",
+    subtitle: "손글씨 한 장이 열 개의 확률이 되기까지, 날씨와 시간이 대여량 하나가 되기까지 — PyTorch로 직접 학습한 Classification·Regression 모델을 Streamlit으로 시연하는 딥러닝 데모",
+    role: "개인 프로젝트 (딥러닝)",
+    period: "개인 프로젝트",
+    summary: "직접 학습한 CNN 체크포인트를 복원해 손글씨 이미지를 28×28 텐서로 변환, 0~9 숫자 확률 분포로 예측하는 Classification 데모와, 학습 시 저장해둔 feature 순서·train 통계를 그대로 복원해 날씨·시간 데이터로 미래 대여 수요를 예측하는 Regression 데모를 하나의 Streamlit 앱에 담았습니다.",
+    architectureHighlights: [
+      "직접 학습한 CNN 모델 체크포인트를 복원하여 손글씨 이미지를 28×28 텐서로 전처리 후 실시간 숫자 분류 (0~9 확률 분포 예측)",
+      "날씨/시간 특성 기반 회귀 모델로 미래 시점 대여 수요 예측, 학습 시 저장한 feature 순서와 train 통계(정규화 파라미터)를 그대로 복원해 추론 정합성 보장",
+      "Classification(분류)·Regression(회귀) 두 딥러닝 태스크를 하나의 Streamlit 앱에서 통합 데모로 구성",
+      "PyTorch 기반 모델 학습 → 체크포인트 저장 → 추론 파이프라인 직접 설계 및 구현",
+      "Streamlit Community Cloud 배포로 브라우저에서 바로 이미지 업로드/입력값 테스트 가능"
+    ],
+    logObservabilityUsed: ["모델 추론 확률 분포 로그", "Streamlit Cloud App Log"],
+    keyOutcome: "CNN 손글씨 Classification & 날씨/시간 기반 수요 Regression  배포 완료",
+    techStack: ["Python", "PyTorch", "Streamlit", "CNN", "Classification", "Regression", "Deep Learning"],
+    githubUrl: "https://github.com/minhahamin",
+    demoUrl: "https://deep-learning-portpolio-qgxu4q4krgwcpj59q7tmj2.streamlit.app/",
+    featured: true
   }
 ];
 
