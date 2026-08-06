@@ -428,6 +428,27 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     githubUrl: "https://github.com/minhahamin",
     demoUrl: "https://deep-learning-portpolio-qgxu4q4krgwcpj59q7tmj2.streamlit.app/",
     featured: true
+  },
+  {
+    id: "project-ai-music",
+    title: "🎵 장르 + 무드 + 언어 통합 음악 예측기 (AI Music Classifier)",
+    subtitle: "노래 파일(WAV/MP3)을 업로드하면 장르 · 무드 · 언어(K-pop/J-pop/C-pop 가능성)를 신뢰도와 함께 한 화면에서 보여주는 Streamlit 오디오 분석 앱",
+    role: "개인 프로젝트 (머신러닝 / 오디오 분석)",
+    period: "개인 프로젝트",
+    summary: "KDT AI Human 'AI Pair' 과정 1~8강(오디오 피처 추출 → RandomForest 장르 분류 → Streamlit 앱화 → ResNet-18 전이학습)의 결과물을 재사용해 만든 9강 통합 프로젝트입니다. librosa로 추출한 57개 오디오 피처를 RandomForest(또는 ResNet-18 체크포인트가 있으면 이를 우선)로 GTZAN 10개 장르 확률을 예측하고, 에너지·밝기 축 기반 규칙 모델로 무드 8태그를, Whisper로 언어(한/일/영/중)를 각각 독립적으로 추론해 신뢰도와 함께 보여줍니다.",
+    architectureHighlights: [
+      "librosa 기반 오디오 피처 추출(57개, 3초 클립) → RandomForest baseline → resnet18_gtzan.pth 존재 시 ResNet-18 자동 우선 사용, 없으면 RF로 자동 폴백",
+      "GTZAN 10개 장르(blues·classical·country·disco·hiphop·jazz·metal·pop·reggae·rock) 확률 전체 + Top-3 신뢰도 bar chart 시각화",
+      "에너지축(tempo·rms_mean·zero_crossing_rate_mean)·밝기축(spectral_centroid_mean·rolloff_mean)을 학습 데이터 평균/표준편차로 z-score 정규화 후 atan2 각도를 45°씩 8구간으로 나눠 무드 태그 분류, 벡터 크기가 하위 25% 미만이면 '애매함' 배지 표시",
+      "Whisper(base) 언어 감지 확률 중 ko/ja/en/zh 4개만 비교해 K-pop·J-pop·C-pop 가능성 태그 부여 — ffmpeg 없이 librosa로 16kHz 오디오를 직접 배열로 읽어 배포 환경을 가볍게 유지",
+      "st.session_state 기반 예측 이력 누적 관리 및 다중 파일 동시 업로드 시 장르 확률 grouped bar chart + 무드·언어 비교 표 제공"
+    ],
+    logObservabilityUsed: ["모델별(RandomForest/ResNet-18) 추론 확률 로그", "Whisper 언어 감지 확률 로그"],
+    keyOutcome: "오디오 피처 추출 → 장르·무드·언어 3중 예측 파이프라인을 하나의 Streamlit 앱으로 통합 배포 완료",
+    techStack: ["Python", "Streamlit", "scikit-learn", "RandomForest", "PyTorch", "ResNet-18", "librosa", "Whisper"],
+    githubUrl: "https://github.com/minhahamin",
+    demoUrl: "https://aimusic-7sygkaxkr3murhhmdh2dtj.streamlit.app/",
+    featured: true
   }
 ];
 
