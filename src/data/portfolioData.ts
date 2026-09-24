@@ -5,8 +5,6 @@ import mesHaccpTempImg from '../assets/images/mes_haccp_temp_1783057625762.jpg';
 import mesKpiDefectsImg from '../assets/images/mes_kpi_defects_1783057638554.jpg';
 import mesReceivingLotImg from '../assets/images/mes_receiving_lot_1783057653549.jpg';
 import mesPayrollAccountingImg from '../assets/images/mes_payroll_accounting_1783057665917.jpg';
-import staynowMainExploreImg from '../assets/images/staynow_main_explore_1783057946715.jpg';
-import staynowDetailBookingImg from '../assets/images/staynow_detail_booking_1783057960030.jpg';
 import safewithGisDashboardImg from '../assets/images/safewith_gis_dashboard_1783058058444.jpg';
 import safewithSafetyEquipmentImg from '../assets/images/safewith_safety_equipment_1783058073647.jpg';
 import safewithSiteListImg from '../assets/images/safewith_site_list_1783058085343.jpg';
@@ -354,140 +352,70 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     ]
   },
   {
-    id: "project-staynow",
-    title: "StayNow (스테이나우 - 감성 숙소 & 공간 예약 플랫폼)",
-    subtitle: "사용자 맞춤형 숙소 탐색, 날짜별 실시간 예약/결제, 호스트 공간 관리를 제공하는 Spring Boot 풀스택 프로젝트",
-    role: "풀스택 개발자 (개인 프로젝트)",
-    period: "개인 프로젝트",
-    summary: "사용자 관점의 직관적인 글로벌/감성 숙소 검색부터 체크인/체크아웃 날짜 기반 실시간 예약 시스템, 중복 예약 방지(Overbooking Guard) 로직 및 호스트 공간 관리 기능까지 전 과정을 Spring Boot 풀스택(Spring Boot MVC / REST API / JPA)으로 직접 구축한 프로젝트입니다.",
-    architectureHighlights: [
-      "Spring Boot 기반 풀스택 아키텍처 (Spring MVC / REST API / Thymeleaf UI) 구축",
-      "Spring Data JPA & PostgreSQL 데이터베이스 연동 및 숙소·예약·게스트 도메인 엔티티 설계",
-      "체크인-체크아웃 날짜 조회 시 Concurrency Lock & Transaction 처리로 중복 예약(Overbooking) 100% 차단",
-      "Spring Security & JWT 기반 사용자/호스트 역할별 접근 제어(RBAC) 및 세션 수호 구축",
-      "Spring Boot & PostgreSQL 연동 환경에서의 Docker 컨테이너화 및 클라우드 연동"
-    ],
-    logObservabilityUsed: ["Spring Boot System Log", "PostgreSQL Transaction Guard", "Access Controller Guard"],
-    keyOutcome: "Spring Boot 풀스택 숙소 예약 시스템 구축 / 중복 예약 방지 100% 검증",
-    techStack: ["Full Stack", "Spring Boot", "Java", "Spring MVC", "Thymeleaf", "Spring Data JPA", "Spring Security", "PostgreSQL"],
-    githubUrl: "https://github.com/minhahamin",
-    featured: true,
-    screenshots: [
-      {
-        url: staynowMainExploreImg,
-        title: "StayNow 메인 글로벌 숙소 탐색 & 검색 대시보드 UI",
-        description: "지역/위치, 체크인/체크아웃 날짜, 게스트 필터링 및 카테고리별 글로벌 감성 숙소 갤러리 레이아웃",
-        tag: "전 세계 숙소 탐색 UI"
-      },
-      {
-        url: staynowDetailBookingImg,
-        title: "숙소 상세 조회 & $55/게스트 실시간 예약 신청 화면",
-        description: "Lisbon Fado Neighborhood Night 상세 정보, 제공 편의시설 안내 및 게스트 선택/예약하기 모듈",
-        tag: "상세 & 실시간 예약"
-      }
-    ]
-  },
-  {
-    id: "project-memomate",
-    title: "💗 MemoMate AI (메모메이트 - AI 회의록 요약기)",
-    subtitle: "회의록 원문을 붙여넣으면 Gemini API가 요약, 핵심 내용, Action Item, 담당자, 마감일, 이메일 초안까지 자동으로 정리해주는 귀여운 메모 카드형 회의록 요약 서비스",
-    role: "풀스택 개발자 (개인 프로젝트)",
-    period: "개인 프로젝트",
-    summary: "Streamlit 기반 UI에 Gemini API(google-genai)를 연동해, 회의록 원문 하나로 회의 요약 · 핵심 내용 · Action Item · 담당자 · 마감일 · 공유용 이메일 초안까지 자동 추출하는 서비스입니다. AI 제공자를 코드 수정 없이 환경변수로 교체할 수 있도록 LLMClient 인터페이스로 추상화하여 설계했습니다.",
-    architectureHighlights: [
-      "Streamlit 기반 UI 구축 및 회의록 파싱 결과를 핑크 파스텔 메모 카드로 렌더링",
-      "LLMClient 인터페이스로 AI 제공자를 추상화, MEMOMATE_PROVIDER 환경변수만으로 손쉬운 전환 구조 설계 (배포 환경은 Gemini API 사용)",
-      "회의 요약 / 핵심 내용 / Action Item / 담당자 / 마감일 / 이메일 초안을 한 번에 추출하는 프롬프트 엔지니어링",
-      "결과를 핑크 메모 카드 PNG 이미지로 내보내는 image_export 모듈 구현",
-      "Streamlit Community Cloud 배포로 별도 서버 구축 없이 즉시 서비스 가능한 형태로 완성"
-    ],
-    logObservabilityUsed: ["Streamlit Cloud App Log", "Gemini API Response 파싱 로그"],
-    keyOutcome: "회의록 → AI 메모 카드 자동 변환 개인 프로젝트 배포 완료 / Gemini API 기반 요약·Action Item 추출 서비스 운영 중",
-    techStack: ["Full Stack", "Python", "Streamlit", "Gemini API", "google-genai", "Prompt Engineering"],
-    githubUrl: "https://github.com/minhahamin",
-    demoUrl: "https://meetingsummarizer-rifrx6v6qkrtpnktljumcx.streamlit.app/",
-    featured: true
-  },
-  {
-    id: "project-deep-learning-portfolio",
-    title: "🧠 Deep Learning Portfolio (CNN 손글씨 분류 & 수요 회귀 예측)",
-    subtitle: "손글씨 한 장이 열 개의 확률이 되기까지, 날씨와 시간이 대여량 하나가 되기까지 — PyTorch로 직접 학습한 Classification·Regression 모델을 Streamlit으로 시연하는 딥러닝 데모",
-    role: "개인 프로젝트 (딥러닝)",
-    period: "개인 프로젝트",
-    summary: "직접 학습한 CNN 체크포인트를 복원해 손글씨 이미지를 28×28 텐서로 변환, 0~9 숫자 확률 분포로 예측하는 Classification 데모와, 학습 시 저장해둔 feature 순서·train 통계를 그대로 복원해 날씨·시간 데이터로 미래 대여 수요를 예측하는 Regression 데모를 하나의 Streamlit 앱에 담았습니다.",
-    architectureHighlights: [
-      "직접 학습한 CNN 모델 체크포인트를 복원하여 손글씨 이미지를 28×28 텐서로 전처리 후 실시간 숫자 분류 (0~9 확률 분포 예측)",
-      "날씨/시간 특성 기반 회귀 모델로 미래 시점 대여 수요 예측, 학습 시 저장한 feature 순서와 train 통계(정규화 파라미터)를 그대로 복원해 추론 정합성 보장",
-      "Classification(분류)·Regression(회귀) 두 딥러닝 태스크를 하나의 Streamlit 앱에서 통합 데모로 구성",
-      "PyTorch 기반 모델 학습 → 체크포인트 저장 → 추론 파이프라인 직접 설계 및 구현",
-      "Streamlit Community Cloud 배포로 브라우저에서 바로 이미지 업로드/입력값 테스트 가능"
-    ],
-    logObservabilityUsed: ["모델 추론 확률 분포 로그", "Streamlit Cloud App Log"],
-    keyOutcome: "CNN 손글씨 Classification & 날씨/시간 기반 수요 Regression  배포 완료",
-    techStack: ["Python", "PyTorch", "Streamlit", "CNN", "Classification", "Regression", "Deep Learning"],
-    githubUrl: "https://github.com/minhahamin",
-    demoUrl: "https://deep-learning-portpolio-qgxu4q4krgwcpj59q7tmj2.streamlit.app/",
-    featured: true
-  },
-  {
     id: "project-prsense",
-    title: "🔍 PrSense (프리센스 - AI PR 자동 코드 리뷰)",
-    subtitle: "GitHub Pull Request를 분류·분석·종합해 파일/라인 단위 리뷰 코멘트를 만들고, 검토 후 GitHub에 게시까지 해주는 AI 코드 리뷰 서비스",
+    title: "🔍 PrSense (프리센스 - GitHub PR 자동 리뷰 에이전트)",
+    subtitle: "PR이 열리면 변경사항을 분석해 인라인 리뷰 코멘트를 자동으로 남기는 에이전트 — LangGraph 오케스트레이션 · 코드베이스 RAG · 구조화 출력 · 실시간 SSE 진행 표시",
     role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
     period: "개인 프로젝트",
-    summary: "PR이 올라오면 웹훅으로 리뷰를 트리거해 변경 유형과 집중 영역을 분류하고, 파일별 diff를 분석해 심각도(critical/warning/nit)·카테고리·신뢰도·제안 수정 코드가 담긴 코멘트를 생성합니다. 프런트엔드는 diff 뷰어 위에 코멘트를 라인 단위로 얹어 보여주고, 사람이 확인한 뒤 GitHub에 리뷰 코멘트로 게시할 수 있도록 설계했습니다.",
+    summary: "GitHub 웹훅으로 PR diff를 수집해 변경 유형·리스크를 분류하고, 파일별로 병렬 분석(각 파일마다 Chroma RAG로 관련 코드 조회)한 뒤 중복 제거·심각도 정렬·사람 톤 재작성을 거쳐 최종 리뷰를 만듭니다. 진행 상황은 SSE로 스트리밍하고, React 프런트의 diff 뷰어에서 인라인 코멘트를 확인한 뒤 GitHub에 게시할 수 있습니다.",
     architectureHighlights: [
-      "분류(classify) → 분석(analyze) → 종합(aggregate) → 재작성(rewrite) 단계로 나뉜 다단계 리뷰 파이프라인, 진행 상태를 SSE로 실시간 스트리밍하여 단계별 진행 표시",
-      "POST /webhook/review/:owner/:repo/:pr 웹훅으로 리뷰 자동 트리거, PR 목록·상세·재실행 API 제공",
-      "React 기반 diff 뷰어: unified diff(patch)를 직접 파싱해 추가/삭제/컨텍스트 라인과 라인 번호를 렌더링하고, 해당 라인에 리뷰 코멘트를 인라인으로 표시",
-      "코멘트마다 심각도·카테고리·신뢰도·제안 수정(suggested fix)을 제공하고, 신뢰도가 낮은 지적은 '확인 필요' 배지로 구분하여 오탐 리스크 완화",
-      "리스크 등급·변경 유형·추천(승인/변경 요청)을 요약 카드로 제공하고, 심각도 필터 및 'GitHub에 게시' 버튼으로 검토 후 게시하는 human-in-the-loop 흐름 구현",
-      "프런트엔드와 백엔드를 Railway에 분리 배포하고 런타임 env.js로 백엔드 주소를 주입"
+      "LangGraph 워크플로우: classify(change_type + risk_level) → Send API로 파일별 analyze_file fan-out(파일 수에 따라 동적 병렬) → aggregate(중복제거·severity 정렬·recommendation) → rewrite(사람 톤) → finalize",
+      "코드베이스 RAG: Python은 AST 기준 함수/클래스 단위, 그 외 언어는 120줄 윈도우로 청킹해 Chroma에 저장하고, 분석 시 관련 코드 top-k를 컨텍스트로 주입",
+      "모든 LLM 호출에 with_structured_output(Pydantic)을 적용해 스키마 위반 코멘트가 GitHub에 게시되는 사고를 방지하고, confidence 0.6 미만은 '확인 필요' 배지로 격리(환각 의심 지적을 숨기지 않고 구분)",
+      "SSE 진행 스트림: append-only 이벤트 저장소 폴링 방식으로 다중 클라이언트가 동시에 구독해도 이벤트 유실 없이 분류중→분석중→종합중→완료 단계 표시",
+      "LangGraph state를 comments(reducer 누적)와 final_comments(overwrite)로 분리해 미선언 키 유실 및 reducer 중복 누적 문제 해결",
+      "평가 스크립트로 사람 리뷰 대비 precision/recall/F1 측정(동일 파일 ±3줄 매칭), API 키 없이 동작하는 MOCK_LLM 모드 제공",
+      "Railway에 backend(FastAPI) · frontend(React + nginx) · Postgres · Chroma 볼륨을 IaC(.railway/railway.ts)로 구성하고, 부팅 시 env.js로 백엔드 주소를 주입해 재빌드 없이 환경 전환"
     ],
-    logObservabilityUsed: ["리뷰 실행 단계별 progress 이벤트(SSE)", "Railway Deploy/App Log"],
-    keyOutcome: "PR 자동 리뷰 파이프라인 + 인라인 diff 코멘트 UI + GitHub 게시 기능 구현 및 Railway 배포 완료",
-    techStack: ["Full Stack", "React", "TypeScript", "Vite", "LLM", "GitHub API", "SSE", "Railway"],
+    logObservabilityUsed: ["SSE 실행 진행 이벤트(run_id별)", "review_runs 실행 이력(Postgres)", "Railway Deploy/App Log"],
+    keyOutcome: "Webhook → 분류 → RAG 기반 병렬 분석 → 재작성 → 인라인 코멘트 게시까지 이어지는 PR 리뷰 에이전트 구현 및 Railway 배포 완료",
+    techStack: ["Full Stack", "Python", "FastAPI", "LangGraph", "Chroma (RAG)", "Pydantic", "React", "TypeScript", "PostgreSQL", "Railway"],
     githubUrl: "https://github.com/minhahamin/PrSense",
     demoUrl: "https://prsenseapp-production.up.railway.app/",
     featured: true
   },
   {
     id: "project-ai-agent-company",
-    title: "🏢 AI Agent Company (멀티 에이전트 협업 시스템)",
-    subtitle: "목표 한 줄을 입력하면 CEO · Planner · Developer · Reviewer · Reporter 에이전트가 LangGraph로 협업해 결과물을 만들어내는 가상의 AI 회사",
+    title: "🏢 AI Agent Company (멀티에이전트 협업 플랫폼)",
+    subtitle: "목표 한 줄을 입력하면 CEO · Planner · Developer · Reviewer · Reporter 5개 AI 에이전트가 회의를 거쳐 산출물과 최종 보고서를 만들어내는 멀티에이전트 협업 플랫폼",
     role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
     period: "개인 프로젝트",
-    summary: "\"신규 프로젝트 기획안 작성\" 같은 목표를 입력하면, 역할이 다른 여러 AI 에이전트가 사람 조직처럼 단계별로 일을 나눠 처리합니다. 각 에이전트의 작업 흐름을 LangGraph 그래프로 정의하고 실제 LLM과 연동했으며, 협업 결과와 이전 작업 이력을 웹 화면에서 확인할 수 있습니다.",
+    summary: "예를 들어 '신입 온보딩 가이드 만들기'를 입력하면 CEO가 일을 나누고, Planner가 계획을 세우고, Developer가 초안을 쓰고, Reviewer가 검토하고(미흡하면 재작업 지시), Reporter가 최종 보고서를 정리합니다. 전체 과정은 LangGraph 상태 그래프로 오케스트레이션되며 Next.js 대시보드에서 단계별 출력을 확인할 수 있습니다.",
     architectureHighlights: [
-      "LangGraph로 CEO → Planner → Developer → Reviewer → Reporter 역할별 에이전트 노드와 상태 전이를 설계한 멀티 에이전트 워크플로우",
-      "목표 입력 → 협업 실행 → 결과 표시로 이어지는 웹 UI 및 에이전트 실행 과정 표시 화면 구현",
-      "이전 작업 목록(히스토리)을 저장해 과거 결과를 다시 열람",
-      "Railway 배포로 별도 환경 구성 없이 브라우저에서 바로 사용 가능"
+      "LangGraph StateGraph로 CEO → Planner → Developer → Reviewer → Reporter 흐름을 설계하고, Reviewer가 NEEDS_FIX를 내리면 Developer로 회귀하는 조건부 분기 및 재작업 루프 구현(최대 재시도 횟수로 무한 루프 방지)",
+      "CompanyState(TypedDict)에 각 노드 출력·승인 여부·재작업 횟수·이벤트 로그를 담아 노드 간 컨텍스트 전달 및 타임라인 UI의 데이터 소스로 활용",
+      "llm.py 추상화: LLM_MODE=auto면 키 존재 여부에 따라 OpenRouter → OpenAI → MOCK 순으로 자동 선택, 노드 코드는 chat() 하나만 호출해 환경 변수만으로 모델 교체 가능",
+      "에이전트 공용 도구(web_search · run_python · save_text) 분리 — Tavily 키가 있으면 실검색, 없으면 MOCK",
+      "DB 이중화: DATABASE_URL이 있으면 Postgres(SQLAlchemy 2.0)에 tasks 영속화, 없으면 인메모리로 폴백하여 로컬/배포 겸용",
+      "Next.js 14 대시보드에서 에이전트별 출력을 탭으로 탐색하고 최종 보고서 하이라이트, /api/health로 백엔드 상태 및 LLM 모드 확인",
+      "Railway에 Backend(FastAPI) · Frontend(Next.js) · Postgres 3개 서비스를 분리 배포하고, NEXT_PUBLIC_* 빌드 타임 주입 특성에 맞춰 Backend → 도메인 확보 → Frontend 순으로 배포 순서 설계"
     ],
-    logObservabilityUsed: ["에이전트별 실행 로그", "Railway Deploy/App Log"],
-    keyOutcome: "역할 기반 멀티 에이전트 협업 시스템 구현 및 Railway 배포 완료",
-    techStack: ["Full Stack", "Python", "LangGraph", "Multi-Agent", "LLM", "Railway"],
+    logObservabilityUsed: ["에이전트별 실행 이벤트 로그(events)", "/api/health 헬스체크", "Railway Deploy/App Log"],
+    keyOutcome: "5개 역할 에이전트의 재작업 루프 포함 협업 파이프라인 구현, 실모델(OpenRouter) + Postgres 연동 상태로 Railway 배포 완료",
+    techStack: ["Full Stack", "Python", "FastAPI", "LangGraph", "Next.js", "TypeScript", "PostgreSQL", "Railway"],
     githubUrl: "https://github.com/minhahamin/ai-agent-company",
     demoUrl: "https://ai-agent-company-production.up.railway.app/",
     featured: true
   },
   {
     id: "project-pennywise",
-    title: "💰 PennyWise (페니와이즈 - 개인 재무 AI 에이전트)",
-    subtitle: "카드/은행 CSV와 영수증 사진을 올리면 AI가 지출을 자동 분류하고, 예산 관리·월간 리포트·절약 팁까지 제안하는 개인 재무 관리 서비스",
+    title: "💰 PennyWise (페니와이즈 - 개인 재무 관리 AI 에이전트)",
+    subtitle: "은행/카드 거래내역(CSV)이나 영수증 사진을 올리면 LLM이 지출을 분류·분석해 예산 초과 알림과 데이터 기반 절약 팁을 제공하는 풀스택 서비스",
     role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
     period: "개인 프로젝트",
-    summary: "은행·카드사마다 다른 CSV 헤더를 자동 매핑하고, 영수증 이미지는 비전 LLM으로 가맹점·날짜·총액·품목을 추출해 거래로 저장합니다. 거래는 식비·카페·교통·구독 등 10개 카테고리로 자동 분류되며, 대시보드·예산 진행률·월별 리포트·데이터 기반 절약 팁으로 소비 습관을 한눈에 파악할 수 있습니다.",
+    summary: "카드사마다 다른 CSV 헤더를 자동 매핑하고 영수증은 비전 LLM으로 구조화 추출해 거래로 저장합니다. LangGraph 파이프라인이 입력 정규화 → 카테고리 분류 → 패턴 분석 → 예산 체크 → 절약 팁 생성 → 리포트 종합을 수행하며, React 대시보드에서 월 리포트·예산 진행률·인사이트를 확인할 수 있습니다.",
     architectureHighlights: [
-      "CSV 드래그앤드롭 업로드: 날짜·가맹점·금액 3개 컬럼만 있으면 은행/카드사별 헤더를 자동 매핑(모호하면 AI 추론), UTF-8/CP949 인코딩 자동 감지, 중복 거래 스킵",
-      "영수증 촬영 업로드(모바일 지원) → 비전 LLM이 가맹점·날짜·총액·품목 추출, 판독 실패 시 저장된 원본으로 재시도",
-      "AI 카테고리 분류 + 신뢰도 표시, 확신도가 낮은 거래는 '확인 필요'로 표시하고 사용자가 직접 수정 가능(사용자 교정 반영)",
-      "카테고리별 예산 설정 및 진행률/초과 알림, 전월 대비 증감, 카테고리별 지출 차트, 최근 6개월 리포트 이력 제공",
-      "지출 데이터 기반 절약 팁과 예상 절약액 제안, 다크/라이트 테마 지원 및 업로드 진행 단계(분석중 → 분류중 → 저장중 → 완료) 표시"
+      "LangGraph 워크플로우 2종(업로드 파이프라인 / 월 리포트 파이프라인): normalize → classify → trend → budget → tips → report",
+      "비용 최적화: 가맹점 키워드 규칙 기반 분류를 우선 적용하고 실패 시에만 LLM 호출, MerchantCache + 퍼지매칭으로 재분류 방지, CSV는 BATCH_SIZE 단위로 묶어 한 프롬프트에 배치 분류",
+      "CSV 업로드 시 컬럼 자동 매핑(모호하면 LLM 헤더 추론 폴백)과 중복 거래 감지, 영수증 이미지는 비전 LLM으로 가맹점·날짜·금액을 구조화 추출 + 중복 체크",
+      "사용자가 카테고리를 수정하면 Feedback을 축적하고 MerchantCache를 갱신해 이후 분류에 반영, confidence가 낮은 거래는 '확인 필요'로 표시",
+      "OPENAI_API_KEY가 없어도 규칙 기반 휴리스틱 모드로 동작 — 라벨 테스트셋 100건 기준 분류 정확도 100%(주요 가맹점), 합성 영수증 추출 테스트 및 핵심 로직 테스트 스위트 통과",
+      "React(Vite) + TypeScript + Recharts 대시보드(Dashboard / Transactions / Upload / Insights), 카테고리별 예산 설정 및 초과·임박 알림",
+      "Railway 배포: 백엔드/프런트 분리, SQLite를 5GB 볼륨(/data)에 저장해 재배포에도 데이터 유지, 로컬은 Docker Compose 지원"
     ],
-    logObservabilityUsed: ["업로드 내역(처리 상태·저장/중복 건수)", "Railway Deploy/App Log"],
-    keyOutcome: "CSV·영수증 → AI 분류 → 예산·리포트·절약 팁까지 이어지는 개인 재무 에이전트 구현 및 Railway 배포 완료",
-    techStack: ["Full Stack", "React", "Python", "Vision LLM", "Recharts", "REST API", "Railway"],
+    logObservabilityUsed: ["업로드 내역(저장/중복 건수·처리 상태)", "/health 헬스체크", "Railway Deploy/App Log"],
+    keyOutcome: "CSV·영수증 → LLM 분류 → 예산 알림·월 리포트·절약 팁으로 이어지는 개인 재무 에이전트 구현 및 Railway 배포 완료",
+    techStack: ["Full Stack", "Python", "FastAPI", "LangGraph", "LangChain", "Pandas", "SQLite", "React", "TypeScript", "Recharts", "Railway"],
     githubUrl: "https://github.com/minhahamin/PennyWise",
     demoUrl: "https://pennywise-production-9cf8.up.railway.app/",
     featured: true
