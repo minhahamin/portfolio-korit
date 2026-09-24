@@ -421,6 +421,54 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     githubUrl: "https://github.com/minhahamin/PennyWise",
     demoUrl: "https://pennywise-production-9cf8.up.railway.app/",
     featured: true
+  },
+  {
+    id: "project-erpilot",
+    title: "🏭 ERPilot (SmartERP - ERP + AI 업무 도우미 B2B SaaS)",
+    subtitle: "직원·급여·재고·생산·거래처를 관리하는 ERP에 자연어로 데이터를 조회하고 사내 문서를 검색하는 AI 챗봇(Copilot)을 결합한 B2B SaaS 플랫폼",
+    role: "풀스택 개발자 (개인 프로젝트 / NestJS & React)",
+    period: "개인 프로젝트",
+    summary: "단순 CRUD가 아니라 중소기업 도입을 가정해 RBAC, 멀티테넌시, 동시성 처리, AI 권한 격리까지 고려한 실무형 ERP입니다. Gemini Function Calling 기반 AI 어시스턴트가 '재고 100개 이하 품목', '이번 달 매출 요약' 같은 질문에 실데이터로 답하고, '연차 신청해줘' 같은 요청은 초안만 만들어 사용자가 확인해야 반영되도록 설계했습니다.",
+    architectureHighlights: [
+      "AI 어시스턴트: Gemini 2.5 Flash Function Calling 오케스트레이션(턴당 최대 4회 도구 호출, 최근 10턴 유지), 재고·영업·생산·인사·공지·사내문서 등 조회 도구 11종",
+      "AI 권한 이중 방어: 노출 단계에서 READ 권한이 없는 도구는 목록에서 제외하고, 실행 단계에서 모든 쿼리에 companyId 스코프를 걸고 EMPLOYEE는 조회 대상을 본인으로 강제 — LLM이 인자를 잘못 채워도 서버가 실제 권한으로 덮어씀",
+      "제안 → 사람 확인 → 확정 패턴: AI는 연차·공지·생산 상태 변경의 초안(Draft)만 생성하고 확인 카드에서 사용자가 눌러야 반영(10분 후 만료), 확정 시 기존 도메인 서비스의 검증·트랜잭션 경로를 그대로 사용",
+      "FAQ 자동화(Human-in-the-loop): 반복 질문을 집계해 임계치 이상만 Gemini로 클러스터링하고 서버가 재검증한 뒤, 관리자가 게시/반려하는 검수 큐를 거쳐 노출",
+      "SaaS 멀티테넌시: Company 단위 데이터 격리와 Role-Permission 매핑으로 회사별 권한 체계 지원, JWT(Access/Refresh) 인증 및 Swagger API 문서화",
+      "ERP 핵심 화면: 대시보드, 직원·부서·급여·근태·RBAC 권한, 거래처·제품·재고·입출고·생산·수주, 문서 관리(업로드 + AI 요약), 공지·FAQ, 통계 분석, 캘린더 일정 관리",
+      "설계와 구현의 트레이드오프를 문서화: 초기 설계(OpenAI + LangChain, pgvector, Redis/BullMQ, AWS)를 포트폴리오 규모에 맞춰 Gemini 직접 호출·키워드 검색·동기 처리·Railway 배포로 의도적 단순화(pgvector는 스키마만 준비)",
+      "Docker 멀티스테이지 빌드로 Frontend(Nginx)/Backend(NestJS)를 Railway에 개별 배포"
+    ],
+    logObservabilityUsed: ["AI Function Calling 도구 호출 기록", "Audit Log 데코레이터", "Swagger(OpenAPI) 문서", "Railway Deploy/App Log"],
+    keyOutcome: "ERP + AI 챗봇 B2B SaaS 구현 — AI 계층까지 일관된 RBAC와 사람 확인 기반 액션 제안 구조로 Railway 배포 완료",
+    techStack: ["Full Stack", "React", "TypeScript", "NestJS", "Prisma", "PostgreSQL", "Gemini API", "Function Calling", "RBAC", "Docker", "Railway"],
+    githubUrl: "https://github.com/minhahamin/SmartERP",
+    demoUrl: "https://smart-erp-fe-production.up.railway.app",
+    featured: true
+  },
+  {
+    id: "project-learnpath",
+    title: "🧭 LearnPath (Learning Curator - AI 학습 로드맵 큐레이터)",
+    subtitle: "관심 주제를 입력하면 AI 에이전트가 직접 웹을 검색·평가해 난이도별 학습 로드맵을 만들어주는 ReAct 기반 개인 학습 콘텐츠 큐레이터",
+    role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
+    period: "개인 프로젝트",
+    summary: "LLM에게 학습 자료를 물으면 존재하지 않는 링크를 추천하는 문제를 해결하기 위해, ReAct(Thought → Action → Observation) 패턴으로 실제 웹 검색 결과에 근거해서만 자료를 추천하도록 강제했습니다. 판단 과정을 타임라인으로 실시간 노출하고, 자료별 학습 진행률 체크리스트를 제공합니다.",
+    architectureHighlights: [
+      "ReAct 에이전트 루프(최대 5회, 토큰 예산 내): Gemini가 다음 검색어를 결정(Thought) → Tavily 웹 검색(Action) → 난이도·신뢰도 평가(Observation) → react_steps 저장, 프런트는 1.5초 폴링으로 진행 상황 표시",
+      "Hallucination 코드 차단(Output Contract): 검색 Observation의 URL을 화이트리스트로 모아 최종 로드맵의 모든 URL과 대조, 지어낸 URL이 있으면 실패 사유를 피드백으로 재요청(최대 2회) 후에도 실패하면 수집 자료를 코드로 직접 조립해 partial 결과 반환",
+      "Gemini tool_config를 mode=ANY + allowed_function_names로 강제해 Thought/Observation/최종 생성 모두 정해진 JSON 스키마의 함수 호출로만 응답받아 파싱 오류 원천 차단",
+      "종료·재시도 같은 안전장치의 최종 결정권은 LLM이 아니라 컨트롤러 코드(_enough_collected 등)가 보유 — 모델이 잘못 판단해도 정상 진행",
+      "프로바이더 중립 tool 스키마 설계: Anthropic Claude에서 Gemini로 교체할 때 _call_tool()과 설정 필드만 수정하고 프롬프트·스키마·검증·DB·프런트는 무변경",
+      "PostgreSQL(JSONB)에 로드맵 저장, 학습 완료 체크 실시간 저장 및 난이도별/전체 진행률 표시, Observation 상세보기(채택/제외 여부·판단 근거)로 추천 과정 투명화",
+      "503 과부하는 지수 백오프로 재시도하고 429(무료 티어 쿼터 소진)는 run_logs에 사유를 남기고 에러 화면 + 재시도 버튼 노출, Docker 포트 충돌 등 트러블슈팅을 README에 기록",
+      "FastAPI(async) + SQLAlchemy + Alembic 백엔드, React(Vite) + React Query 프런트, Railway 배포"
+    ],
+    logObservabilityUsed: ["run_logs(토큰/실패 사유)", "react_steps(Thought/Action/Observation 타임라인)", "Railway Deploy/App Log"],
+    keyOutcome: "실제 검색 결과 기반 URL 검증을 통과한 학습 로드맵 생성(예: React Hooks 3회전·29.5초·자료 9개, 재시도 0회) 및 Railway 배포 완료",
+    techStack: ["Full Stack", "Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "React", "Vite", "Gemini API", "Tavily", "ReAct", "Railway"],
+    githubUrl: "https://github.com/minhahamin/LearnPath",
+    demoUrl: "https://frontend-production-c5ba.up.railway.app",
+    featured: true
   }
 ];
 
