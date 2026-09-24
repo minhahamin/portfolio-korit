@@ -430,24 +430,66 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     featured: true
   },
   {
-    id: "project-ai-music",
-    title: "🎵 장르 + 무드 + 언어 통합 음악 예측기 (AI Music Classifier)",
-    subtitle: "노래 파일(WAV/MP3)을 업로드하면 장르 · 무드 · 언어(K-pop/J-pop/C-pop 가능성)를 신뢰도와 함께 한 화면에서 보여주는 Streamlit 오디오 분석 앱",
-    role: "개인 프로젝트 (머신러닝 / 오디오 분석)",
+    id: "project-prsense",
+    title: "🔍 PrSense (프리센스 - AI PR 자동 코드 리뷰)",
+    subtitle: "GitHub Pull Request를 분류·분석·종합해 파일/라인 단위 리뷰 코멘트를 만들고, 검토 후 GitHub에 게시까지 해주는 AI 코드 리뷰 서비스",
+    role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
     period: "개인 프로젝트",
-    summary: "KDT AI Human 'AI Pair' 과정 1~8강(오디오 피처 추출 → RandomForest 장르 분류 → Streamlit 앱화 → ResNet-18 전이학습)의 결과물을 재사용해 만든 9강 통합 프로젝트입니다. librosa로 추출한 57개 오디오 피처를 RandomForest(또는 ResNet-18 체크포인트가 있으면 이를 우선)로 GTZAN 10개 장르 확률을 예측하고, 에너지·밝기 축 기반 규칙 모델로 무드 8태그를, Whisper로 언어(한/일/영/중)를 각각 독립적으로 추론해 신뢰도와 함께 보여줍니다.",
+    summary: "PR이 올라오면 웹훅으로 리뷰를 트리거해 변경 유형과 집중 영역을 분류하고, 파일별 diff를 분석해 심각도(critical/warning/nit)·카테고리·신뢰도·제안 수정 코드가 담긴 코멘트를 생성합니다. 프런트엔드는 diff 뷰어 위에 코멘트를 라인 단위로 얹어 보여주고, 사람이 확인한 뒤 GitHub에 리뷰 코멘트로 게시할 수 있도록 설계했습니다.",
     architectureHighlights: [
-      "librosa 기반 오디오 피처 추출(57개, 3초 클립) → RandomForest baseline → resnet18_gtzan.pth 존재 시 ResNet-18 자동 우선 사용, 없으면 RF로 자동 폴백",
-      "GTZAN 10개 장르(blues·classical·country·disco·hiphop·jazz·metal·pop·reggae·rock) 확률 전체 + Top-3 신뢰도 bar chart 시각화",
-      "에너지축(tempo·rms_mean·zero_crossing_rate_mean)·밝기축(spectral_centroid_mean·rolloff_mean)을 학습 데이터 평균/표준편차로 z-score 정규화 후 atan2 각도를 45°씩 8구간으로 나눠 무드 태그 분류, 벡터 크기가 하위 25% 미만이면 '애매함' 배지 표시",
-      "Whisper(base) 언어 감지 확률 중 ko/ja/en/zh 4개만 비교해 K-pop·J-pop·C-pop 가능성 태그 부여 — ffmpeg 없이 librosa로 16kHz 오디오를 직접 배열로 읽어 배포 환경을 가볍게 유지",
-      "st.session_state 기반 예측 이력 누적 관리 및 다중 파일 동시 업로드 시 장르 확률 grouped bar chart + 무드·언어 비교 표 제공"
+      "분류(classify) → 분석(analyze) → 종합(aggregate) → 재작성(rewrite) 단계로 나뉜 다단계 리뷰 파이프라인, 진행 상태를 SSE로 실시간 스트리밍하여 단계별 진행 표시",
+      "POST /webhook/review/:owner/:repo/:pr 웹훅으로 리뷰 자동 트리거, PR 목록·상세·재실행 API 제공",
+      "React 기반 diff 뷰어: unified diff(patch)를 직접 파싱해 추가/삭제/컨텍스트 라인과 라인 번호를 렌더링하고, 해당 라인에 리뷰 코멘트를 인라인으로 표시",
+      "코멘트마다 심각도·카테고리·신뢰도·제안 수정(suggested fix)을 제공하고, 신뢰도가 낮은 지적은 '확인 필요' 배지로 구분하여 오탐 리스크 완화",
+      "리스크 등급·변경 유형·추천(승인/변경 요청)을 요약 카드로 제공하고, 심각도 필터 및 'GitHub에 게시' 버튼으로 검토 후 게시하는 human-in-the-loop 흐름 구현",
+      "프런트엔드와 백엔드를 Railway에 분리 배포하고 런타임 env.js로 백엔드 주소를 주입"
     ],
-    logObservabilityUsed: ["모델별(RandomForest/ResNet-18) 추론 확률 로그", "Whisper 언어 감지 확률 로그"],
-    keyOutcome: "오디오 피처 추출 → 장르·무드·언어 3중 예측 파이프라인을 하나의 Streamlit 앱으로 통합 배포 완료",
-    techStack: ["Python", "Streamlit", "scikit-learn", "RandomForest", "PyTorch", "ResNet-18", "librosa", "Whisper"],
-    githubUrl: "https://github.com/minhahamin",
-    demoUrl: "https://aimusic-7sygkaxkr3murhhmdh2dtj.streamlit.app/",
+    logObservabilityUsed: ["리뷰 실행 단계별 progress 이벤트(SSE)", "Railway Deploy/App Log"],
+    keyOutcome: "PR 자동 리뷰 파이프라인 + 인라인 diff 코멘트 UI + GitHub 게시 기능 구현 및 Railway 배포 완료",
+    techStack: ["Full Stack", "React", "TypeScript", "Vite", "LLM", "GitHub API", "SSE", "Railway"],
+    githubUrl: "https://github.com/minhahamin/PrSense",
+    demoUrl: "https://prsenseapp-production.up.railway.app/",
+    featured: true
+  },
+  {
+    id: "project-ai-agent-company",
+    title: "🏢 AI Agent Company (멀티 에이전트 협업 시스템)",
+    subtitle: "목표 한 줄을 입력하면 CEO · Planner · Developer · Reviewer · Reporter 에이전트가 LangGraph로 협업해 결과물을 만들어내는 가상의 AI 회사",
+    role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
+    period: "개인 프로젝트",
+    summary: "\"신규 프로젝트 기획안 작성\" 같은 목표를 입력하면, 역할이 다른 여러 AI 에이전트가 사람 조직처럼 단계별로 일을 나눠 처리합니다. 각 에이전트의 작업 흐름을 LangGraph 그래프로 정의하고 실제 LLM과 연동했으며, 협업 결과와 이전 작업 이력을 웹 화면에서 확인할 수 있습니다.",
+    architectureHighlights: [
+      "LangGraph로 CEO → Planner → Developer → Reviewer → Reporter 역할별 에이전트 노드와 상태 전이를 설계한 멀티 에이전트 워크플로우",
+      "목표 입력 → 협업 실행 → 결과 표시로 이어지는 웹 UI 및 에이전트 실행 과정 표시 화면 구현",
+      "이전 작업 목록(히스토리)을 저장해 과거 결과를 다시 열람",
+      "Railway 배포로 별도 환경 구성 없이 브라우저에서 바로 사용 가능"
+    ],
+    logObservabilityUsed: ["에이전트별 실행 로그", "Railway Deploy/App Log"],
+    keyOutcome: "역할 기반 멀티 에이전트 협업 시스템 구현 및 Railway 배포 완료",
+    techStack: ["Full Stack", "Python", "LangGraph", "Multi-Agent", "LLM", "Railway"],
+    githubUrl: "https://github.com/minhahamin/ai-agent-company",
+    demoUrl: "https://ai-agent-company-production.up.railway.app/",
+    featured: true
+  },
+  {
+    id: "project-pennywise",
+    title: "💰 PennyWise (페니와이즈 - 개인 재무 AI 에이전트)",
+    subtitle: "카드/은행 CSV와 영수증 사진을 올리면 AI가 지출을 자동 분류하고, 예산 관리·월간 리포트·절약 팁까지 제안하는 개인 재무 관리 서비스",
+    role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
+    period: "개인 프로젝트",
+    summary: "은행·카드사마다 다른 CSV 헤더를 자동 매핑하고, 영수증 이미지는 비전 LLM으로 가맹점·날짜·총액·품목을 추출해 거래로 저장합니다. 거래는 식비·카페·교통·구독 등 10개 카테고리로 자동 분류되며, 대시보드·예산 진행률·월별 리포트·데이터 기반 절약 팁으로 소비 습관을 한눈에 파악할 수 있습니다.",
+    architectureHighlights: [
+      "CSV 드래그앤드롭 업로드: 날짜·가맹점·금액 3개 컬럼만 있으면 은행/카드사별 헤더를 자동 매핑(모호하면 AI 추론), UTF-8/CP949 인코딩 자동 감지, 중복 거래 스킵",
+      "영수증 촬영 업로드(모바일 지원) → 비전 LLM이 가맹점·날짜·총액·품목 추출, 판독 실패 시 저장된 원본으로 재시도",
+      "AI 카테고리 분류 + 신뢰도 표시, 확신도가 낮은 거래는 '확인 필요'로 표시하고 사용자가 직접 수정 가능(사용자 교정 반영)",
+      "카테고리별 예산 설정 및 진행률/초과 알림, 전월 대비 증감, 카테고리별 지출 차트, 최근 6개월 리포트 이력 제공",
+      "지출 데이터 기반 절약 팁과 예상 절약액 제안, 다크/라이트 테마 지원 및 업로드 진행 단계(분석중 → 분류중 → 저장중 → 완료) 표시"
+    ],
+    logObservabilityUsed: ["업로드 내역(처리 상태·저장/중복 건수)", "Railway Deploy/App Log"],
+    keyOutcome: "CSV·영수증 → AI 분류 → 예산·리포트·절약 팁까지 이어지는 개인 재무 에이전트 구현 및 Railway 배포 완료",
+    techStack: ["Full Stack", "React", "Python", "Vision LLM", "Recharts", "REST API", "Railway"],
+    githubUrl: "https://github.com/minhahamin/PennyWise",
+    demoUrl: "https://pennywise-production-9cf8.up.railway.app/",
     featured: true
   }
 ];
