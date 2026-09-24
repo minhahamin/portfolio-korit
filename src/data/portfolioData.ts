@@ -37,7 +37,7 @@ export const CAREER_HISTORY: CareerItem[] = [
     period: "1년 10개월",
     summary: "MES(제조실행시스템) 개발 및 납품",
     duties: [
-      "React 기반 MES 프론트엔드 개발 (3개 제조사 납품 완료)",
+      "React 기반 MES 프론트엔드 개발 (5개 제조사 납품 완료)",
       "Node.js / Nest.js REST API 서버 구축 및 MariaDB 연동",
       "기준정보 / 영업 / 생산 / 품질 / 자재 등 통합 관리 모듈 화면 설계 및 구현",
       "대용량 데이터 조회 쿼리 최적화 (응답 시간 95% 개선)"
@@ -111,7 +111,7 @@ export const KEYWORDS: KeywordItem[] = [
     title: "보이지 않는 곳에서 시스템의 안정성을 지키는 책임감",
     description: "제조 현장의 24시간 MES 시스템과 안전 관리 플랫폼의 API 응답성과 세션 연속성을 철저히 지킵니다.",
     iconName: "ShieldCheck",
-    highlightText: "3개 제조사 MES 안정 납품 및 401 JWT 토큰 자동 재발급 세션 수호"
+    highlightText: "5개 제조사 MES 안정 납품 및 401 JWT 토큰 자동 재발급 세션 수호"
   },
   {
     id: "relentless",
@@ -257,8 +257,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: "MES 생산관리 시스템 (Manufacturing Execution System)",
     subtitle: "제조업 현장의 생산, 자재, 품질, 영업 데이터를 통합 관리하는 엔터프라이즈 MES 시스템",
     role: "풀스택 웹 개발자 (React & Node.js / Nest.js)",
-    period: "3개 제조사 납품 완료", // 씨에프티유한책임회사
-    summary: "3개 제조 현장에 납품된 MES 시스템으로, 기준정보, 영업, 생산, 품질, 자재 모듈 전체의 화면 설계, React 대시보드, 달력 기반 일정 등록, REST API 서버 연동 및 DB 쿼리 최적화를 담당했습니다.",
+    period: "5개 제조사 납품 완료", // 씨에프티유한책임회사
+    experience: "실무 경험",
+    summary: "5개 제조 현장에 납품된 MES 시스템으로, 기준정보, 영업, 생산, 품질, 자재 모듈 전체의 화면 설계, React 대시보드, 달력 기반 일정 등록, REST API 서버 연동 및 DB 쿼리 최적화를 담당했습니다.",
     architectureHighlights: [
       "기준정보 / 영업 / 생산 / 품질 / 자재 등 5대 핵심 관리 모듈 화면 완벽 구현",
       "React 기반 인터랙티브 대시보드 및 달력 기반 일정/생산 현황 모니터링",
@@ -267,7 +268,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Promise.all 병렬 API 처리로 초기 대시보드 로딩 속도 77% 개선 (3.5초 → 0.8초)"
     ],
     logObservabilityUsed: ["MariaDB Slow Query Log", "Chrome DevTools Waterfall", "Express Custom Logger"],
-    keyOutcome: "3개 제조사 현장 성공 납품 완료 / 쿼리 응답속도 95% 개선 / LOT 동시성 중복 0건",
+    keyOutcome: "5개 제조사 현장 성공 납품 완료 / 쿼리 응답속도 95% 개선 / LOT 동시성 중복 0건",
     techStack: ["Full Stack", "React", "Node.js", "Express.js", "Nest.js", "MariaDB", "MySQL", "Microservice", "SQL Optimization"],
     githubUrl: "https://github.com/minhahamin",
     featured: true,
@@ -316,6 +317,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     subtitle: "현장 운영, 안전 점검, 근로자 및 협력사 관리 기능을 하나로 통합한 엔터프라이즈 안전 플랫폼",
     role: "웹개발 / 책임 (Next.js & Node.js)",
     period: "대표 프로젝트",
+    experience: "실무 경험",
     summary: "스마트 건설 현장의 위성 GIS 관제 대시보드부터 개인 보호구 지급 현황, 근로자 출역 관리 및 현장 등록/위험성 평가까지 통합 관리하는 시스템입니다. Next.js / React 프론트엔드와 Node.js 백엔드 REST API를 풀스택으로 설계하고 개발하였습니다.",
     architectureHighlights: [
       "Next.js & Node.js REST API 아키텍처 및 React SPA 전체 UI/UX 구축",

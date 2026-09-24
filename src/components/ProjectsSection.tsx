@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Layers, Github, ExternalLink, Activity, CheckCircle2, Shield, ArrowUpRight, Code, Terminal, Image as ImageIcon, ChevronLeft, ChevronRight, Eye, Maximize2 } from 'lucide-react';
+import { Layers, Briefcase, Github, ExternalLink, Activity, CheckCircle2, Shield, ArrowUpRight, Code, Terminal, Image as ImageIcon, ChevronLeft, ChevronRight, Eye, Maximize2 } from 'lucide-react';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioData';
 import { PortfolioProject } from '../types';
 
@@ -11,10 +11,11 @@ export const ProjectsSection: React.FC = () => {
   const [activeImageIdx, setActiveImageIdx] = useState<number>(0);
   const [isFullImageModalOpen, setIsFullImageModalOpen] = useState<boolean>(false);
 
-  const tags = ['ALL', 'Featured', 'Observability', 'Microservice', 'Full Stack'];
+  const tags = ['ALL', '실무 경험', 'Featured', 'Observability', 'Microservice', 'Full Stack'];
 
   const filteredProjects = PORTFOLIO_PROJECTS.filter((proj) => {
     if (selectedTag === 'ALL') return true;
+    if (selectedTag === '실무 경험') return !!proj.experience;
     if (selectedTag === 'Featured') return proj.featured;
     if (selectedTag === 'Observability') return proj.logObservabilityUsed.length > 0;
     if (selectedTag === 'Microservice') {
@@ -91,6 +92,13 @@ export const ProjectsSection: React.FC = () => {
                   </span>
                   <span className="text-xs font-mono text-[#627D98]">{project.period}</span>
                 </div>
+
+                {project.experience && (
+                  <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-amber-300 bg-amber-950/50 border border-amber-400/40 px-2.5 py-0.5 rounded-full mb-2">
+                    <Briefcase className="w-3 h-3" />
+                    {project.experience}
+                  </span>
+                )}
 
                 {/* Project Title */}
                 <h3 
@@ -212,6 +220,13 @@ export const ProjectsSection: React.FC = () => {
                 </span>
                 <span className="text-xs font-mono text-[#627D98]">{activeProjectModal.period}</span>
               </div>
+
+              {activeProjectModal.experience && (
+                <span className="inline-flex items-center gap-1 text-xs font-mono font-bold text-amber-300 bg-amber-950/50 border border-amber-400/40 px-2.5 py-0.5 rounded-full mb-2">
+                  <Briefcase className="w-3.5 h-3.5" />
+                  {activeProjectModal.experience}
+                </span>
+              )}
 
               <h3 className="text-2xl sm:text-3xl font-heading font-bold text-white mb-2 pr-12">
                 {activeProjectModal.title}

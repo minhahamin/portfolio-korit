@@ -49,6 +49,7 @@ export interface PortfolioProject {
   subtitle: string;
   role: string;
   period: string;
+  experience?: string; // 실무 경험 표시용 라벨
   summary: string;
   architectureHighlights: string[];
   logObservabilityUsed: string[];
