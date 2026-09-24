@@ -353,7 +353,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   },
   {
     id: "project-prsense",
-    title: "🔍 PrSense (프리센스 - GitHub PR 자동 리뷰 에이전트)",
+    title: "🔍 PrSense (피알센스 - GitHub PR 자동 리뷰 에이전트)",
     subtitle: "PR이 열리면 변경사항을 분석해 인라인 리뷰 코멘트를 자동으로 남기는 에이전트 — LangGraph 오케스트레이션 · 코드베이스 RAG · 구조화 출력 · 실시간 SSE 진행 표시",
     role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
     period: "개인 프로젝트",
