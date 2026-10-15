@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Layers, Briefcase, Github, ExternalLink, Activity, CheckCircle2, Shield, ArrowUpRight, Code, Terminal, Image as ImageIcon, ChevronLeft, ChevronRight, Eye, Maximize2, LayoutGrid, Users, User } from 'lucide-react';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioData';
@@ -22,6 +22,17 @@ export const ProjectsSection: React.FC = () => {
   const matchTag = (proj: PortfolioProject, key: string) => key === 'ALL' || proj.category === key;
 
   const filteredProjects = PORTFOLIO_PROJECTS.filter((proj) => matchTag(proj, selectedTag));
+
+  useEffect(() => {
+    if (!activeProjectModal) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      if (isFullImageModalOpen) setIsFullImageModalOpen(false);
+      else setActiveProjectModal(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [activeProjectModal, isFullImageModalOpen]);
 
   const openProjectModal = (project: PortfolioProject, startImageIdx = 0) => {
     setActiveProjectModal(project);
@@ -212,7 +223,10 @@ export const ProjectsSection: React.FC = () => {
 
         {/* Project Detail & Screenshot Modal */}
         {activeProjectModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md animate-fade-in">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md animate-fade-in"
+            onClick={(e) => { if (e.target === e.currentTarget) setActiveProjectModal(null); }}
+          >
             <div className="bg-[#1c1c21] border border-[#f472b6]/40 rounded-2xl max-w-4xl w-full p-5 sm:p-8 max-h-[92vh] overflow-y-auto relative shadow-2xl glass-card text-white">
               <button
                 onClick={() => setActiveProjectModal(null)}
@@ -417,7 +431,10 @@ export const ProjectsSection: React.FC = () => {
 
         {/* Full Image Zoom Modal */}
         {isFullImageModalOpen && activeProjectModal && activeProjectModal.screenshots && (
-          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg animate-fade-in">
+          <div
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg animate-fade-in cursor-zoom-out"
+            onClick={() => setIsFullImageModalOpen(false)}
+          >
             <div className="relative max-w-5xl w-full max-h-[95vh] flex flex-col items-center">
               <button
                 onClick={() => setIsFullImageModalOpen(false)}
