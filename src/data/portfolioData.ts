@@ -14,6 +14,12 @@ import learnpathHomeImg from '../assets/images/learnpath_home.jpg';
 import learnpathRoadmapImg from '../assets/images/learnpath_roadmap.jpg';
 import pennywiseTransactionsImg from '../assets/images/pennywise_transactions.jpg';
 import pennywiseInsightsImg from '../assets/images/pennywise_insights.jpg';
+import mestoryAiAnalysisImg from '../assets/images/mestory_ai_analysis.jpg';
+import mestoryReportImg from '../assets/images/mestory_report.jpg';
+import mestoryDowntimeImg from '../assets/images/mestory_downtime.jpg';
+import erpilotDashboardImg from '../assets/images/erpilot_dashboard.jpg';
+import erpilotAiAssistantImg from '../assets/images/erpilot_ai_assistant.jpg';
+import erpilotInventoryImg from '../assets/images/erpilot_inventory.jpg';
 
 export const HERO_TAGLINE = {
   mainTitle: "로그 속의 보이지 않는\n단서를 추적하여,",
@@ -260,6 +266,7 @@ axios.interceptors.response.use(res => res, async error => {
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   {
     id: "project-mes",
+    category: "work",
     title: "MES 생산관리 시스템 (Manufacturing Execution System)",
     subtitle: "제조업 현장의 생산, 자재, 품질, 영업 데이터를 통합 관리하는 엔터프라이즈 MES 시스템",
     role: "풀스택 웹 개발자 (React & Node.js / Nest.js)",
@@ -319,6 +326,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   },
   {
     id: "project-safewith",
+    category: "work",
     title: "세이프위드 현장 안전관리 시스템 (SafeWith)",
     subtitle: "현장 운영, 안전 점검, 근로자 및 협력사 관리 기능을 하나로 통합한 엔터프라이즈 안전 플랫폼",
     role: "웹개발 / 책임 (Next.js & Node.js)",
@@ -361,6 +369,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   },
   {
     id: "project-mestory",
+    category: "team",
     title: "🏭 MESTORY (설비 다운타임 원인 분석 리포트 자동 생성 서비스)",
     subtitle: "정지 로그·에러코드 사전·정비이력을 근거로 원인·심각도·근거·권장 조치를 담은 리포트를 자동 생성하는 서비스 — 최종 확정과 조치는 항상 사람이 하고, AI는 판단 근거만 제공",
     role: "백엔드 (출력계약 리드) · 3인 팀 프로젝트",
@@ -380,10 +389,31 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     techStack: ["Full Stack", "Python", "FastAPI", "LangChain", "MCP", "Pydantic", "Langfuse", "Next.js", "React", "PostgreSQL", "Railway"],
     githubUrl: "https://github.com/aihuman-7th/proj2-2",
     demoUrl: "https://mestory-app.up.railway.app/",
-    featured: true
+    featured: true,
+    screenshots: [
+      {
+        url: mestoryAiAnalysisImg,
+        title: "AI 원인 분석 – 대화형 분석 & 분석 인사이트",
+        description: "설비 다운타임 원인을 대화로 묻고, 분석된 원인 건수·현장 확인 필요 여부와 원인별 심각도(M-204 주축 기어박스 파손, 중대)를 우측 패널에서 함께 확인하는 화면",
+        tag: "AI 원인분석"
+      },
+      {
+        url: mestoryReportImg,
+        title: "원인 분석 리포트",
+        description: "심각도 배너, 총 다운타임·발생 건수, 주요 다운타임 TOP 3, 원인별 분석을 한 화면에 정리하고 메일 발송·엑셀 다운로드·PDF 저장·요약 듣기를 지원하는 리포트",
+        tag: "분석 리포트"
+      },
+      {
+        url: mestoryDowntimeImg,
+        title: "다운타임 분석 – 원인별 비중 & 상세",
+        description: "기간·라인·설비·상태 필터로 다운타임을 조회하고, 원인별 비중과 총 다운타임·최대 영향 설비 인사이트, 원인별 발생 건수·총 시간·최근 발생 상세 표를 제공하는 화면",
+        tag: "다운타임 분석"
+      }
+    ]
   },
   {
     id: "project-ai-agent-company",
+    category: "personal",
     title: "🏢 AI Agent Company (멀티에이전트 협업 플랫폼)",
     subtitle: "목표 한 줄을 입력하면 CEO · Planner · Developer · Reviewer · Reporter 5개 AI 에이전트가 회의를 거쳐 산출물과 최종 보고서를 만들어내는 멀티에이전트 협업 플랫폼",
     role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
@@ -421,6 +451,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   },
   {
     id: "project-pennywise",
+    category: "personal",
     title: "💰 PennyWise (페니와이즈 - 개인 재무 관리 AI 에이전트)",
     subtitle: "은행/카드 거래내역(CSV)이나 영수증 사진을 올리면 LLM이 지출을 분류·분석해 예산 초과 알림과 데이터 기반 절약 팁을 제공하는 풀스택 서비스",
     role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
@@ -458,6 +489,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   },
   {
     id: "project-erpilot",
+    category: "personal",
     title: "🏭 ERPilot (SmartERP - ERP + AI 업무 도우미 B2B SaaS)",
     subtitle: "직원·급여·재고·생산·거래처를 관리하는 ERP에 자연어로 데이터를 조회하고 사내 문서를 검색하는 AI 챗봇(Copilot)을 결합한 B2B SaaS 플랫폼",
     role: "풀스택 개발자 (개인 프로젝트 / NestJS & React)",
@@ -478,10 +510,31 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     techStack: ["Full Stack", "React", "TypeScript", "NestJS", "Prisma", "PostgreSQL", "Gemini API", "Function Calling", "RBAC", "Docker", "Railway"],
     githubUrl: "https://github.com/minhahamin/SmartERP",
     demoUrl: "https://smart-erp-fe-production.up.railway.app",
-    featured: true
+    featured: true,
+    screenshots: [
+      {
+        url: erpilotDashboardImg,
+        title: "대시보드 – 매출 추이 & 재고 경고",
+        description: "이번 달 매출·재직 인원·재고 경고·생산 지연 KPI, 최근 6개월 매출 추이 차트, 안전재고 미달 품목 목록과 최근 공지사항을 한눈에 보여주는 메인 화면",
+        tag: "대시보드"
+      },
+      {
+        url: erpilotAiAssistantImg,
+        title: "AI 업무 도우미 – 자연어 조회 & 휴가 신청 초안",
+        description: "자연어로 연차 잔여 일수를 조회하고(getLeaveBalance), 휴가 신청 초안을 작성(draftLeaveRequest)한 뒤 확인 카드에서 사용자가 직접 확정하는 Function Calling 기반 AI 챗봇 화면",
+        tag: "AI 어시스턴트"
+      },
+      {
+        url: erpilotInventoryImg,
+        title: "재고 관리 – 창고별 현황 & 안전재고 알림",
+        description: "창고별 재고 현황을 조회하고 현재고가 안전재고 미만인 품목을 '부족' 상태와 상단 경고로 강조하며, 재고 실사 시작·창고 관리로 이어지는 화면",
+        tag: "재고 관리"
+      }
+    ]
   },
   {
     id: "project-learnpath",
+    category: "personal",
     title: "🧭 LearnPath (Learning Curator - AI 학습 로드맵 큐레이터)",
     subtitle: "관심 주제를 입력하면 AI 에이전트가 직접 웹을 검색·평가해 난이도별 학습 로드맵을 만들어주는 ReAct 기반 개인 학습 콘텐츠 큐레이터",
     role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",

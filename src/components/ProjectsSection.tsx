@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Layers, Briefcase, Github, ExternalLink, Activity, CheckCircle2, Shield, ArrowUpRight, Code, Terminal, Image as ImageIcon, ChevronLeft, ChevronRight, Eye, Maximize2, LayoutGrid, Star, Radar, Boxes, Layers3 } from 'lucide-react';
+import { Layers, Briefcase, Github, ExternalLink, Activity, CheckCircle2, Shield, ArrowUpRight, Code, Terminal, Image as ImageIcon, ChevronLeft, ChevronRight, Eye, Maximize2, LayoutGrid, Users, User } from 'lucide-react';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioData';
 import { PortfolioProject } from '../types';
 
@@ -12,28 +12,14 @@ export const ProjectsSection: React.FC = () => {
   const [isFullImageModalOpen, setIsFullImageModalOpen] = useState<boolean>(false);
 
 
-  const matchTag = (proj: PortfolioProject, selectedTag: string) => {
-    if (selectedTag === 'ALL') return true;
-    if (selectedTag === '실무 경험') return !!proj.experience;
-    if (selectedTag === 'Featured') return proj.featured;
-    if (selectedTag === 'Observability') return proj.logObservabilityUsed.length > 0;
-    if (selectedTag === 'Microservice') {
-      return proj.techStack.some(t => t.toLowerCase().includes('microservice') || t.toLowerCase().includes('nest') || t.toLowerCase().includes('spring') || t.toLowerCase().includes('express'));
-    }
-    if (selectedTag === 'Full Stack') {
-      return proj.techStack.some(t => t.toLowerCase().includes('full stack') || t.toLowerCase().includes('react')) || proj.role.includes('풀스택');
-    }
-    return proj.techStack.some(t => t.toLowerCase().includes(selectedTag.toLowerCase()));
-  };
-
-  const tags = [
+  const tags: { key: string; label: string; Icon: React.ElementType }[] = [
     { key: 'ALL', label: '전체', Icon: LayoutGrid },
-    { key: '실무 경험', label: '실무 경험', Icon: Briefcase },
-    { key: 'Featured', label: '대표작', Icon: Star },
-    { key: 'Observability', label: '모니터링', Icon: Radar },
-    { key: 'Microservice', label: '마이크로서비스', Icon: Boxes },
-    { key: 'Full Stack', label: '풀스택', Icon: Layers3 },
+    { key: 'work', label: '실무 경험', Icon: Briefcase },
+    { key: 'team', label: '팀 프로젝트', Icon: Users },
+    { key: 'personal', label: '개인 프로젝트', Icon: User },
   ];
+
+  const matchTag = (proj: PortfolioProject, key: string) => key === 'ALL' || proj.category === key;
 
   const filteredProjects = PORTFOLIO_PROJECTS.filter((proj) => matchTag(proj, selectedTag));
 

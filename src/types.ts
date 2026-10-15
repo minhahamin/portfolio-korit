@@ -43,8 +43,11 @@ export interface ProjectScreenshot {
   tag: string;
 }
 
+export type ProjectCategory = 'work' | 'team' | 'personal';
+
 export interface PortfolioProject {
   id: string;
+  category: ProjectCategory;
   title: string;
   subtitle: string;
   role: string;
