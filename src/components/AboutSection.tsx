@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, Target, Flame, Users, Briefcase, CheckCircle2, GraduationCap, Sparkles, Award } from 'lucide-react';
+import { Target, Flame, Users, Briefcase, CheckCircle2, GraduationCap, Sparkles, Award } from 'lucide-react';
 import { CAREER_HISTORY, EDUCATION_HISTORY } from '../data/portfolioData';
+import profileImg from '../assets/images/profile.jpg';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -162,8 +163,8 @@ export const AboutSection: React.FC = () => {
           {/* Left Column: Visual Card */}
           <div className="lg:col-span-5">
             <div className="rounded-2xl bg-[#1c1c21] border border-[#f472b6]/30 p-6 sm:p-8 shadow-2xl glass-card relative overflow-hidden">
-              <div className="w-16 h-16 rounded-2xl bg-[#111113] border-2 border-[#f472b6] flex items-center justify-center mb-6 shadow-[0_0_25px_rgba(244,114,182,0.3)]">
-                <ShieldCheck className="w-8 h-8 text-[#f472b6]" />
+              <div className="w-16 h-16 rounded-2xl bg-[#111113] border-2 border-[#f472b6] overflow-hidden mb-6 shadow-[0_0_25px_rgba(244,114,182,0.3)]">
+                <img src={profileImg} alt="홍민하 프로필 사진" className="w-full h-full object-cover object-top" />
               </div>
 
               <h3 className="text-2xl font-heading font-bold text-white mb-2">
