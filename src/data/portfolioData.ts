@@ -29,7 +29,7 @@ import chefearMyRecipesImg from '../assets/images/chefear_my_recipes.jpg';
 export const HERO_TAGLINE = {
   mainTitle: "로그 속의 보이지 않는\n단서를 추적하여,",
   subTitle: "사용자의 눈에 보이는 일상을 빈틈없이 수호합니다.",
-  role: "2년차 풀스택 웹 개발자 | React, Spring Boot, Node.js",
+  role: "2년차 풀스택 AI·웹 개발자 | React, Spring Boot, Node.js",
   bio: "안녕하세요, 홍민하입니다. 프론트엔드, 백엔드, 배포까지 서비스 전체 흐름을 책임지고 구현합니다. 단순한 구현에 그치지 않고 대용량 DB 쿼리 최적화, Race Condition 방지, JWT 세션 자동 유지를 통해 안정적으로 동작하는 고품질 제품을 만듭니다.",
 };
 

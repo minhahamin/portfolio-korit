@@ -23,7 +23,7 @@ export const AboutSection: React.FC = () => {
             개발자 소개 &amp; 경력·교육 이력
           </h2>
           <p className="text-base text-[#a8a8b3]">
-            2년차 풀스택 웹 개발자 홍민하입니다. 실무 개발 경험과 AI 국비 과정을 통해 지속 성장하고 있습니다.
+            2년차 풀스택 AI·웹 개발자 홍민하입니다. 실무 개발 경험과 AI 국비 과정을 통해 지속 성장하고 있습니다.
           </p>
         </motion.div>
 
@@ -170,7 +170,7 @@ export const AboutSection: React.FC = () => {
                 홍민하 | Hong Minha
               </h3>
               <p className="text-xs font-mono text-[#f472b6] mb-4">
-                Full Stack Web Developer
+                Full Stack AI / Web Developer
               </p>
 
               <p className="text-xs text-[#a8a8b3] leading-relaxed mb-6">
