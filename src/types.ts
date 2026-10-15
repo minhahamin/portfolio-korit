@@ -41,6 +41,8 @@ export interface ProjectScreenshot {
   title: string;
   description: string;
   tag: string;
+  /** 카드 썸네일 크롭 위치 (모바일 세로 캡처는 'center') */
+  focus?: 'top' | 'center';
 }
 
 export type ProjectCategory = 'work' | 'team' | 'personal';

@@ -147,7 +147,7 @@ export const ProjectsSection: React.FC = () => {
                     <img 
                       src={project.screenshots[0].url} 
                       alt={project.screenshots[0].title} 
-                      className="w-full h-36 object-cover object-top transition-transform duration-500 group-hover/img:scale-105"
+                      className={`w-full h-36 object-cover ${project.screenshots[0].focus === 'center' ? 'object-center' : 'object-top'} transition-transform duration-500 group-hover/img:scale-105`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111113] via-black/30 to-transparent flex items-end justify-between p-3">
                       <span className="text-[10px] font-mono font-bold text-[#f472b6] bg-[#111113]/90 px-2 py-0.5 rounded border border-[#f472b6]/30 backdrop-blur-sm">

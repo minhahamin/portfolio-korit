@@ -20,6 +20,11 @@ import mestoryDowntimeImg from '../assets/images/mestory_downtime.jpg';
 import erpilotDashboardImg from '../assets/images/erpilot_dashboard.jpg';
 import erpilotAiAssistantImg from '../assets/images/erpilot_ai_assistant.jpg';
 import erpilotInventoryImg from '../assets/images/erpilot_inventory.jpg';
+import chefearLoginImg from '../assets/images/chefear_login.jpg';
+import chefearStartImg from '../assets/images/chefear_start.jpg';
+import chefearCookingImg from '../assets/images/chefear_cooking.jpg';
+import chefearRegisterImg from '../assets/images/chefear_register.jpg';
+import chefearMyRecipesImg from '../assets/images/chefear_my_recipes.jpg';
 
 export const HERO_TAGLINE = {
   mainTitle: "로그 속의 보이지 않는\n단서를 추적하여,",
@@ -408,6 +413,63 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
         title: "다운타임 분석 – 원인별 비중 & 상세",
         description: "기간·라인·설비·상태 필터로 다운타임을 조회하고, 원인별 비중과 총 다운타임·최대 영향 설비 인사이트, 원인별 발생 건수·총 시간·최근 발생 상세 표를 제공하는 화면",
         tag: "다운타임 분석"
+      }
+    ]
+  },
+  {
+    id: "project-chefear",
+    category: "team",
+    title: "🎙️ ChefEar (셰프이어 - 음성으로 레시피를 안내하는 AI 요리 에이전트)",
+    subtitle: "손에 물기와 재료가 묻어 화면을 볼 수 없는 순간에도, 음성만으로 레시피를 한 단계씩 안내하는 AI 에이전트 — Whisper STT·Qwen3-TTS 도메인 파인튜닝, 로컬 LLM(EXAONE), Streamlit",
+    role: "TTS 파인튜닝 · UI · 계정 (3인 팀 프로젝트)",
+    period: "팀 프로젝트",
+    summary: "AI Human 7기 1차 팀 프로젝트(2026-08-14 ~ 09-08, 3인 팀)로 만든 음성 레시피 에이전트입니다. 사용자는 정해진 명령어가 아니라 자유발화로 요리를 요청하고 다음/다시/이전 단계를 말로 진행합니다. 저는 요리 도메인 TTS(Qwen3-TTS) LoRA 파인튜닝과 체크포인트 검증·평가, Streamlit 화면 구현, 로그인·구글 OAuth·마이레시피 계정 기능, 소유자 격리 보안 결함 수정을 담당했습니다. (STT 파인튜닝·오케스트레이션·배포는 팀원 담당)",
+    architectureHighlights: [
+      "Qwen3-TTS-12Hz-1.7B를 KSS 데이터셋(12,854문장)으로 LoRA 파인튜닝(Colab A100)하고 체크포인트를 검증 — epoch-24에서 TTS→STT 재인식 CER이 평균 1.37 → 14.26으로 급등하고 반복 발화가 늘어 과적합으로 판단, epoch-13을 채택해 5문장 재인식 CER 0.00 달성",
+      "TTS 파인튜닝 방식 비교 실험: Base / Full FT / LoRA / QLoRA 비교에서 Full FT는 MOS 2.10으로 회귀, LoRA가 블라인드 MOS 4.67로 1위(13명·909건 평가, 지인 편의표본이라 통계적 대표성은 없음)",
+      "TTS CPU 추론 속도를 측정(문장당 약 26초)해 CPU 배포 불가를 판단, GPU 상시 배포로 방향을 잡는 근거 제공 / max_new_tokens 재조정·시드 고정으로 합성 결과 재현성 확보",
+      "기획 화면 목업 기반 UI 프로토타입(HTML 11화면 + Streamlit)을 만들고 화면별 컴포넌트로 분리 — 로그인·시작·조리 단계(진행 점·파형)·요리 완료·레시피 등록·마이레시피 화면 구현",
+      "로컬 회원가입/로그인 + 구글 OAuth, 로그인 유지, 마이레시피(목록/수정/삭제) 구현 — 레시피 등록은 로그인 필수, 등록한 레시피는 등록자 본인에게만 노출되도록 전환",
+      "소유자 격리 보안 결함 수정: 파이프라인의 owner_id 누락, 비로그인 상태 노출, IDOR(타인 레시피 접근), 저장 가드 보완",
+      "Supabase recipes / recipe_steps 테이블 스키마 설계와 레시피 데이터 적재 스크립트 작성"
+    ],
+    logObservabilityUsed: [],
+    keyOutcome: "LoRA TTS 블라인드 MOS 4.67(1위)·재인식 CER 0.00(5문장) 달성, 로그인·구글 OAuth·마이레시피와 소유자 격리 보안 수정까지 구현",
+    techStack: ["Python", "Streamlit", "Qwen3-TTS", "LoRA Fine-tuning", "Supabase", "Google OAuth", "TTS / STT"],
+    githubUrl: "https://github.com/chefear-team/ChefEar_ai",
+    demoUrl: "https://chefear-landingpage.vercel.app",
+    featured: true,
+    screenshots: [
+      {
+        url: chefearStartImg,
+        title: "시작 화면 – 말로 요리 요청",
+        description: "숫자 메뉴 없이 \"된장찌개 어떻게 만들어?\"처럼 하고 싶은 말을 그대로 말하면 시작하는 음성 중심 첫 화면 (마이크 연결 안내 포함)",
+        tag: "음성 시작",
+        focus: "center"
+      },
+      {
+        url: chefearCookingImg,
+        title: "조리 단계 안내 (1/7 단계)",
+        description: "현재 단계 카드와 진행 점, 음성 파형 표시, 오늘의 재료 칩을 한 화면에 보여주며 이전/다음 버튼과 음성 명령으로 단계를 이동하는 조리 화면",
+        tag: "조리 안내"
+      },
+      {
+        url: chefearLoginImg,
+        title: "로그인 – 구글 OAuth & 아이디 로그인",
+        description: "구글로 로그인 또는 아이디/비밀번호 로그인, 회원가입, 비로그인으로 둘러보기를 제공하는 계정 화면",
+        tag: "계정"
+      },
+      {
+        url: chefearRegisterImg,
+        title: "레시피 등록 (2/3 단계 · 재료)",
+        description: "등록할 요리의 재료를 칩으로 확인하고 쉼표로 여러 개를 한 번에 추가할 수 있는 등록 화면 (등록은 로그인 필수)",
+        tag: "레시피 등록"
+      },
+      {
+        url: chefearMyRecipesImg,
+        title: "마이레시피 – 내가 등록한 레시피 관리",
+        description: "로그인한 사용자가 등록한 레시피 목록과 수정·삭제, 로그아웃을 제공하는 화면 (등록한 레시피는 등록자 본인에게만 노출)",
+        tag: "마이레시피"
       }
     ]
   },
