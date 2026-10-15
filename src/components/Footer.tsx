@@ -7,14 +7,14 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#0B192C] border-t border-[#00D4FF]/20 py-12 relative text-xs">
+    <footer className="bg-[#111113] border-t border-[#f472b6]/20 py-12 relative text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Brand & Tagline */}
         <div className="flex flex-col items-center md:items-start gap-2">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-[#102A43] border border-[#00D4FF]/40 flex items-center justify-center">
-              <Terminal className="w-3.5 h-3.5 text-[#00D4FF]" />
+            <div className="w-7 h-7 rounded-lg bg-[#1c1c21] border border-[#f472b6]/40 flex items-center justify-center">
+              <Terminal className="w-3.5 h-3.5 text-[#f472b6]" />
             </div>
             <span className="font-heading font-bold text-white text-sm">
               HongMinHa Portfolio
@@ -24,20 +24,20 @@ export const Footer: React.FC = () => {
             </span>
           </div>
 
-          <p className="text-[#627D98] text-center md:text-left max-w-md">
+          <p className="text-[#8c8c97] text-center md:text-left max-w-md">
             &quot;로그 속의 보이지 않는 단서를 추적하여, 사용자의 눈에 보이는 일상을 빈틈없이 수호합니다.&quot;
           </p>
         </div>
 
         {/* Copyright & Scroll To Top */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 text-[#829AB1]">
+        <div className="flex flex-col sm:flex-row items-center gap-4 text-[#a8a8b3]">
           <span className="font-mono text-[11px]">
             &copy; {new Date().getFullYear()} Hong Minha. All Rights Reserved.
           </span>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#102A43] hover:bg-[#1E3A8A] text-[#00D4FF] border border-[#00D4FF]/30 transition-all text-xs font-mono"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#1c1c21] hover:bg-[#2a2a31] text-[#f472b6] border border-[#f472b6]/30 transition-all text-xs font-mono"
             title="맨 위로 이동"
           >
             <span>TOP</span>

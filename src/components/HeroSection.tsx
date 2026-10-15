@@ -48,8 +48,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAiAnalyzer }) =>
   return (
     <section className="relative pt-32 pb-20 overflow-hidden bg-grid-pattern">
       {/* Background ambient lighting effects */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00D4FF]/10 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" />
-      <div className="absolute top-1/3 left-10 w-[300px] h-[300px] bg-[#1E3A8A]/30 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f472b6]/10 rounded-full blur-[140px] pointer-events-none animate-pulse-glow" />
+      <div className="absolute top-1/3 left-10 w-[300px] h-[300px] bg-[#2a2a31]/30 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -60,8 +60,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAiAnalyzer }) =>
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center text-center"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#102A43] border border-[#00D4FF]/30 text-[#00D4FF] text-xs font-mono mb-6 shadow-[0_0_20px_rgba(0,212,255,0.2)]">
-            <Shield className="w-3.5 h-3.5 animate-pulse text-[#00D4FF]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1c1c21] border border-[#f472b6]/30 text-[#f472b6] text-xs font-mono mb-6 shadow-[0_0_20px_rgba(244,114,182,0.2)]">
+            <Shield className="w-3.5 h-3.5 animate-pulse text-[#f472b6]" />
             <span>LOG-TRACKER &amp; DIGITAL SENTINEL PORTFOLIO</span>
           </div>
 
@@ -75,7 +75,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAiAnalyzer }) =>
             </span> 개발자&quot;
           </h1>
 
-          <p className="max-w-2xl text-base sm:text-lg text-[#829AB1] leading-relaxed mb-8">
+          <p className="max-w-2xl text-base sm:text-lg text-[#a8a8b3] leading-relaxed mb-8">
             {HERO_TAGLINE.bio}
           </p>
 
@@ -83,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAiAnalyzer }) =>
           <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
             <button
               onClick={onOpenAiAnalyzer}
-              className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-[#00D4FF] to-[#38BDF8] text-[#0B192C] hover:shadow-[0_0_25px_rgba(0,212,255,0.4)] transition-all duration-300 hover:scale-105"
+              className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-[#f472b6] to-[#f472b6] text-[#111113] hover:shadow-[0_0_25px_rgba(244,114,182,0.4)] transition-all duration-300 hover:scale-105"
             >
               <Cpu className="w-4 h-4" />
               <span>AI 실시간 로그 분석기 체험</span>
@@ -92,9 +92,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAiAnalyzer }) =>
 
             <a
               href="#root-cause"
-              className="flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold bg-[#102A43] hover:bg-[#1E3A8A] text-white border border-[#00D4FF]/30 hover:border-[#00D4FF] transition-all duration-300 shadow-sm"
+              className="flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold bg-[#1c1c21] hover:bg-[#2a2a31] text-white border border-[#f472b6]/30 hover:border-[#f472b6] transition-all duration-300 shadow-sm"
             >
-              <Search className="w-4 h-4 text-[#00D4FF]" />
+              <Search className="w-4 h-4 text-[#f472b6]" />
               <span>근본 해결(Root-Cause) 사례 보기</span>
             </a>
           </div>
@@ -105,16 +105,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAiAnalyzer }) =>
           initial={{ opacity: 0, y: 40, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-4xl mx-auto rounded-2xl bg-[#0B192C] border border-[#00D4FF]/30 shadow-2xl overflow-hidden glass-card"
+          className="max-w-4xl mx-auto rounded-2xl bg-[#111113] border border-[#f472b6]/30 shadow-2xl overflow-hidden glass-card"
         >
           {/* Terminal Window Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-[#102A43]/80 border-b border-[#00D4FF]/20">
+          <div className="flex items-center justify-between px-4 py-3 bg-[#1c1c21]/80 border-b border-[#f472b6]/20">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
               <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
               <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-              <span className="ml-2 font-mono text-xs text-[#829AB1] flex items-center gap-1.5">
-                <Terminal className="w-3.5 h-3.5 text-[#00D4FF]" />
+              <span className="ml-2 font-mono text-xs text-[#a8a8b3] flex items-center gap-1.5">
+                <Terminal className="w-3.5 h-3.5 text-[#f472b6]" />
                 sentinel-live-log-stream.log
               </span>
             </div>
@@ -126,10 +126,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAiAnalyzer }) =>
               </span>
               <button 
                 onClick={() => setIsPaused(!isPaused)}
-                className="text-[#829AB1] hover:text-white transition-colors text-xs flex items-center gap-1"
+                className="text-[#a8a8b3] hover:text-white transition-colors text-xs flex items-center gap-1"
                 title={isPaused ? "스트림 재개" : "스트림 일시정지"}
               >
-                {isPaused ? <Play className="w-3.5 h-3.5 text-[#00D4FF]" /> : <Pause className="w-3.5 h-3.5" />}
+                {isPaused ? <Play className="w-3.5 h-3.5 text-[#f472b6]" /> : <Pause className="w-3.5 h-3.5" />}
               </button>
             </div>
           </div>
@@ -138,7 +138,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAiAnalyzer }) =>
           <div className="p-4 sm:p-5 font-mono text-xs sm:text-sm space-y-2.5 min-h-[220px] max-h-[280px] overflow-y-auto">
             {logs.map((log) => (
               <div key={log.id} className="flex items-start gap-2.5 leading-relaxed animate-fade-in">
-                <span className="text-[#627D98] shrink-0 font-light">{log.time}</span>
+                <span className="text-[#8c8c97] shrink-0 font-light">{log.time}</span>
                 
                 {log.type === 'INFO' && (
                   <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-950/80 text-blue-400 border border-blue-500/30 shrink-0">
@@ -166,34 +166,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAiAnalyzer }) =>
                     ? 'text-emerald-300 font-medium' 
                     : log.type === 'WARN' 
                     ? 'text-amber-200' 
-                    : 'text-[#F0F4F8]'
+                    : 'text-[#f4f4f5]'
                 }>
                   {log.msg}
                 </span>
               </div>
             ))}
-            <div className="flex items-center gap-1 text-[#00D4FF] pt-1">
-              <span className="w-2 h-4 bg-[#00D4FF] animate-pulse inline-block" />
-              <span className="text-xs text-[#829AB1] font-mono">Real-time log forensics active...</span>
+            <div className="flex items-center gap-1 text-[#f472b6] pt-1">
+              <span className="w-2 h-4 bg-[#f472b6] animate-pulse inline-block" />
+              <span className="text-xs text-[#a8a8b3] font-mono">Real-time log forensics active...</span>
             </div>
           </div>
 
           {/* Terminal Footer Quick Metrics Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10 bg-[#102A43]/90 border-t border-[#00D4FF]/20 text-center py-3 px-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10 bg-[#1c1c21]/90 border-t border-[#f472b6]/20 text-center py-3 px-2">
             <div>
-              <div className="text-[10px] text-[#829AB1] uppercase font-mono tracking-wider">Service SLA</div>
+              <div className="text-[10px] text-[#a8a8b3] uppercase font-mono tracking-wider">Service SLA</div>
               <div className="text-sm sm:text-base font-bold text-white font-mono">99.99%</div>
             </div>
             <div>
-              <div className="text-[10px] text-[#829AB1] uppercase font-mono tracking-wider">Mean Time To Detect</div>
-              <div className="text-sm sm:text-base font-bold text-[#00D4FF] font-mono">&lt; 1.5 min</div>
+              <div className="text-[10px] text-[#a8a8b3] uppercase font-mono tracking-wider">Mean Time To Detect</div>
+              <div className="text-sm sm:text-base font-bold text-[#f472b6] font-mono">&lt; 1.5 min</div>
             </div>
             <div>
-              <div className="text-[10px] text-[#829AB1] uppercase font-mono tracking-wider">Root Cause Rate</div>
+              <div className="text-[10px] text-[#a8a8b3] uppercase font-mono tracking-wider">Root Cause Rate</div>
               <div className="text-sm sm:text-base font-bold text-emerald-400 font-mono">100% Resolved</div>
             </div>
             <div>
-              <div className="text-[10px] text-[#829AB1] uppercase font-mono tracking-wider">User Downtime</div>
+              <div className="text-[10px] text-[#a8a8b3] uppercase font-mono tracking-wider">User Downtime</div>
               <div className="text-sm sm:text-base font-bold text-white font-mono">0 ms</div>
             </div>
           </div>

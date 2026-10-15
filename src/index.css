@@ -9,13 +9,13 @@ html {
   --font-heading: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-midnight: #102A43;
-  --color-midnight-dark: #0B192C;
-  --color-midnight-light: #1E3A8A;
-  --color-cyan-electric: #00D4FF;
-  --color-slate-soft: #627D98;
-  --color-slate-light: #829AB1;
-  --color-slate-ghost: #F0F4F8;
+  --color-midnight: #1c1c21;
+  --color-midnight-dark: #111113;
+  --color-midnight-light: #2a2a31;
+  --color-cyan-electric: #f472b6;
+  --color-slate-soft: #8c8c97;
+  --color-slate-light: #a8a8b3;
+  --color-slate-ghost: #f4f4f5;
 }
 
 @keyframes pulseGlow {
@@ -37,21 +37,21 @@ html {
 }
 
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #00D4FF 0%, #38BDF8 50%, #93C5FD 100%);
+  background: linear-gradient(135deg, #f472b6 0%, #f472b6 50%, #fbcfe8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .bg-grid-pattern {
-  background-image: radial-gradient(rgba(0, 212, 255, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(244,114,182, 0.12) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .glass-card {
-  background: rgba(16, 42, 67, 0.65);
+  background: rgba(28,28,33, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(244,114,182, 0.12);
 }
 
 .glass-card-hover {
@@ -59,8 +59,8 @@ html {
 }
 
 .glass-card-hover:hover {
-  border-color: rgba(0, 212, 255, 0.35);
-  box-shadow: 0 0 25px rgba(0, 212, 255, 0.15);
+  border-color: rgba(244,114,182, 0.35);
+  box-shadow: 0 0 25px rgba(244,114,182, 0.15);
   transform: translateY(-2px);
 }
 
@@ -71,15 +71,15 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B192C;
+  background: #111113;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #102A43;
+  background: #1c1c21;
   border-radius: 4px;
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(244,114,182, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #627D98;
+  background: #8c8c97;
 }
