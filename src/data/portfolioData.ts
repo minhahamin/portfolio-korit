@@ -8,6 +8,12 @@ import mesPayrollAccountingImg from '../assets/images/mes_payroll_accounting_178
 import safewithGisDashboardImg from '../assets/images/safewith_gis_dashboard_1783058058444.jpg';
 import safewithSafetyEquipmentImg from '../assets/images/safewith_safety_equipment_1783058073647.jpg';
 import safewithSiteListImg from '../assets/images/safewith_site_list_1783058085343.jpg';
+import aiagentTimelineImg from '../assets/images/aiagent_timeline.jpg';
+import aiagentReportImg from '../assets/images/aiagent_report.jpg';
+import learnpathHomeImg from '../assets/images/learnpath_home.jpg';
+import learnpathRoadmapImg from '../assets/images/learnpath_roadmap.jpg';
+import pennywiseTransactionsImg from '../assets/images/pennywise_transactions.jpg';
+import pennywiseInsightsImg from '../assets/images/pennywise_insights.jpg';
 
 export const HERO_TAGLINE = {
   mainTitle: "로그 속의 보이지 않는\n단서를 추적하여,",
@@ -397,7 +403,21 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     techStack: ["Full Stack", "Python", "FastAPI", "LangGraph", "Next.js", "TypeScript", "PostgreSQL", "Railway"],
     githubUrl: "https://github.com/minhahamin/ai-agent-company",
     demoUrl: "https://ai-agent-company-production.up.railway.app/",
-    featured: true
+    featured: true,
+    screenshots: [
+      {
+        url: aiagentTimelineImg,
+        title: "목표 입력 & 에이전트 협업 타임라인",
+        description: "목표 한 줄을 입력하면 CEO → Planner → Developer → Reviewer → Reporter 순서로 단계별 출력이 타임라인에 쌓이고, Reviewer가 NEEDS_FIX를 내리면 재작업하는 흐름을 확인하는 메인 화면",
+        tag: "협업 타임라인"
+      },
+      {
+        url: aiagentReportImg,
+        title: "협업 결과 & 최종 보고서",
+        description: "에이전트별 출력을 탭으로 탐색하고, Reporter가 정리한 최종 보고서를 확인하는 결과 화면 (보고서 PDF / 산출물 zip 다운로드 제공)",
+        tag: "최종 보고서"
+      },
+    ]
   },
   {
     id: "project-pennywise",
@@ -420,7 +440,21 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     techStack: ["Full Stack", "Python", "FastAPI", "LangGraph", "LangChain", "Pandas", "SQLite", "React", "TypeScript", "Recharts", "Railway"],
     githubUrl: "https://github.com/minhahamin/PennyWise",
     demoUrl: "https://pennywise-production-9cf8.up.railway.app/",
-    featured: true
+    featured: true,
+    screenshots: [
+      {
+        url: pennywiseTransactionsImg,
+        title: "거래 내역 & 자동 카테고리 분류",
+        description: "업로드한 CSV 거래내역이 가맹점별로 식비·카페·교통·쇼핑·고정비 등으로 자동 분류되어 나열되고, 가맹점 검색·카테고리 필터·수동 수정이 가능한 화면",
+        tag: "거래 내역"
+      },
+      {
+        url: pennywiseInsightsImg,
+        title: "월간 인사이트 – 예산 초과 알림 & 절약 팁",
+        description: "월 총 지출 요약, 카테고리별 예산 초과 알림(색상으로 위험도 구분), 지난달 대비 증감과 계산 근거를 함께 제시하는 데이터 기반 절약 팁 화면",
+        tag: "인사이트"
+      },
+    ]
   },
   {
     id: "project-erpilot",
@@ -468,7 +502,21 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     techStack: ["Full Stack", "Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "React", "Vite", "Gemini API", "Tavily", "ReAct", "Railway"],
     githubUrl: "https://github.com/minhahamin/LearnPath",
     demoUrl: "https://frontend-production-c5ba.up.railway.app",
-    featured: true
+    featured: true,
+    screenshots: [
+      {
+        url: learnpathHomeImg,
+        title: "학습 주제 입력 (새 큐레이션)",
+        description: "관심 주제를 입력하면 에이전트가 ReAct(Thought → Action → Observation) 루프로 웹을 검색·평가해 학습 로드맵을 만들어주는 시작 화면",
+        tag: "큐레이션 시작"
+      },
+      {
+        url: learnpathRoadmapImg,
+        title: "난이도별 학습 로드맵 & 진행률",
+        description: "입문 단계부터 자료를 추천하고 자료별 신뢰도(높음/보통)를 표시하며, 체크리스트로 학습 진행률(예: 2/9 완료)을 저장하는 로드맵 화면",
+        tag: "학습 로드맵"
+      },
+    ]
   }
 ];
 
