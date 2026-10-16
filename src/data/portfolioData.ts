@@ -12,6 +12,8 @@ import aiagentTimelineImg from '../assets/images/aiagent_timeline.jpg';
 import aiagentReportImg from '../assets/images/aiagent_report.jpg';
 import learnpathHomeImg from '../assets/images/learnpath_home.jpg';
 import learnpathRoadmapImg from '../assets/images/learnpath_roadmap.jpg';
+import medirailChatImg from '../assets/images/medirail_chat.jpg';
+import medirailSoapImg from '../assets/images/medirail_soap.jpg';
 import pennywiseTransactionsImg from '../assets/images/pennywise_transactions.jpg';
 import pennywiseInsightsImg from '../assets/images/pennywise_insights.jpg';
 import mestoryAiAnalysisImg from '../assets/images/mestory_ai_analysis.jpg';
@@ -496,7 +498,21 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     techStack: ["Full Stack", "Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "MCP", "Function Calling", "RBAC", "Playwright", "Docker", "Railway"],
     githubUrl: "https://github.com/minhahamin/mediRail",
     demoUrl: "https://medirail-web-production.up.railway.app",
-    featured: true
+    featured: true,
+    screenshots: [
+      {
+        url: medirailChatImg,
+        title: "상담 – 식약처 DUR 근거 인용 답변",
+        description: "의사 계정에서 졸피뎀의 연령별 주의사항을 질문하면 식약처 DUR 도구 결과에만 근거해 답하고, 문장마다 출처([D1])를 붙이며 '최종 판단은 의사와 상담' 고지를 강제하는 화면 (응급 감지·출처 검증·권한 검사 상시 활성)",
+        tag: "근거 기반 상담"
+      },
+      {
+        url: medirailSoapImg,
+        title: "SOAP 노트 – 의사만 승인 (human-in-the-loop)",
+        description: "AI는 S·O·A·P 초안만 만들 수 있고, 승인 도구는 AI에 존재하지 않아 의사가 이 화면에서만 '검토 후 승인'할 수 있도록 분리한 화면 (초안/승인됨 필터 제공)",
+        tag: "SOAP 초안 · 승인"
+      }
+    ]
   },
   {
     id: "project-ai-agent-company",
