@@ -474,6 +474,31 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     ]
   },
   {
+    id: "project-medirail",
+    category: "personal",
+    title: "🏥 MediRail (근거 기반 의료 AI 에이전트)",
+    subtitle: "진단·처방은 하지 않고 모든 답변에 출처를 붙이며 최종 판단은 의료진에게 위임 — 안전을 프롬프트가 아니라 코드 레벨의 가드레일(Rail)로 보장하는 의료 AI 에이전트",
+    role: "풀스택 개발자 (개인 프로젝트 / AI 에이전트)",
+    period: "개인 프로젝트",
+    summary: "문진 요약과 SOAP 초안 작성, 예약 안내, PubMed 문헌 검색, 식약처 DUR 약물 상호작용 조회를 돕는 의료 AI 에이전트입니다. 환자·간호사·의사·원무 4개 역할별로 도구와 데이터 접근 범위가 달라지며, 응급 감지·출력 검증·감사 로그를 코드로 강제합니다. 모든 데이터는 합성 데이터이며 포트폴리오·학습용입니다.",
+    architectureHighlights: [
+      "다층 방어 설계: 역할별 도구 노출 제한 → 실행 시 재검사 → 서비스 계층 권한 검사 → 감사 로그. 환자가 타인의 문진 기록을 요구해도 세 겹의 코드 검사가 독립적으로 차단",
+      "응급 가드레일: LLM 호출 전에 규칙 기반으로 응급 문장을 감지해 LLM 없이 즉시 119(자해 표현은 109 포함)를 안내, 재현율 우선 설계",
+      "출력 검증과 자가 교정: 도구 결과에 없는 출처·존재하지 않는 PMID·확정 진단/처방 표현·약물 병용 '안전' 단정을 사후 차단하고, 위반 사유를 알려 1회 재작성시킨 뒤 반복되면 폐기하거나 안전 문구로 대체",
+      "MCP 서버 2종(PubMed, 식약처 DUR)을 독립 프로세스로 분리해 Claude Code/Desktop 등 다른 MCP 클라이언트에서도 사용 가능, 브리지는 지연 기동·프로세스 사망 시 자동 재기동",
+      "DUR 성분정보(1,836행뿐임을 발견)를 전체 로컬 인덱스로 재설계하고, 유사 표기 성분명은 자동 확정하지 않고 후보를 제시(needs_confirmation), '목록에 없음 ≠ 안전' 고지",
+      "최소 권한과 human-in-the-loop: SOAP 승인 도구는 어떤 역할의 LLM에도 부여하지 않고 의사가 REST로만 승인, 시스템 관리자의 임상 데이터 열람은 사유 기록(break-glass) 필수, 감사 로그에는 원문 없이 도구명·이벤트·길이만 기록",
+      "평가 하네스: 45문항·7개 카테고리 규칙 기반 채점(LLM 판사 없음), 4개 모델 비교에서 qwen3.7-flash가 정확도 98%·근거 인용 100%·환각률 2%(45문항 약 $0.0009), 모델 간 차이는 1~2문항 수준이라 유의하지 않음을 명시",
+      "pytest 337개(SQLite·PostgreSQL 양쪽) + Playwright E2E 39개(가짜 LLM, 변이 테스트로 회귀 검출 확인), GitHub Actions 5개 병렬 작업 CI, FastAPI + React 19 + Railway 배포"
+    ],
+    logObservabilityUsed: ["감사 로그(도구명·이벤트·길이)", "요청 제한(사용자/IP/일일 상한)", "Railway Deploy/App Log"],
+    keyOutcome: "코드 레벨 가드레일 기반 의료 AI 에이전트 구현 — 평가 정확도 98%·근거 인용 100%, pytest 337 + E2E 39 CI 통과 및 Railway 배포 완료",
+    techStack: ["Full Stack", "Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "MCP", "Function Calling", "RBAC", "Playwright", "Docker", "Railway"],
+    githubUrl: "https://github.com/minhahamin/mediRail",
+    demoUrl: "https://medirail-web-production.up.railway.app",
+    featured: true
+  },
+  {
     id: "project-ai-agent-company",
     category: "personal",
     title: "🏢 AI Agent Company (멀티에이전트 협업 플랫폼)",
