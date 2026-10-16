@@ -14,6 +14,11 @@ import learnpathHomeImg from '../assets/images/learnpath_home.jpg';
 import learnpathRoadmapImg from '../assets/images/learnpath_roadmap.jpg';
 import medirailChatImg from '../assets/images/medirail_chat.jpg';
 import medirailSoapImg from '../assets/images/medirail_soap.jpg';
+import medirailPatientImg from '../assets/images/medirail_patient.jpg';
+import medirailNurseImg from '../assets/images/medirail_nurse.jpg';
+import medirailAdminAuditImg from '../assets/images/medirail_admin_audit.jpg';
+import medirailSuperUsersImg from '../assets/images/medirail_super_users.jpg';
+import medirailSuperBreakglassImg from '../assets/images/medirail_super_breakglass.jpg';
 import pennywiseTransactionsImg from '../assets/images/pennywise_transactions.jpg';
 import pennywiseInsightsImg from '../assets/images/pennywise_insights.jpg';
 import mestoryAiAnalysisImg from '../assets/images/mestory_ai_analysis.jpg';
@@ -511,6 +516,36 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
         title: "SOAP 노트 – 의사만 승인 (human-in-the-loop)",
         description: "AI는 S·O·A·P 초안만 만들 수 있고, 승인 도구는 AI에 존재하지 않아 의사가 이 화면에서만 '검토 후 승인'할 수 있도록 분리한 화면 (초안/승인됨 필터 제공)",
         tag: "SOAP 초안 · 승인"
+      },
+      {
+        url: medirailPatientImg,
+        title: "환자 권한 – 내 예약 관리",
+        description: "환자 계정은 상담과 내 예약 메뉴만 노출되며 본인 예약만 조회·취소·신규 예약할 수 있는 화면 (진료일 하루 전 18:00까지 취소 가능, 평일/토요일 진료시간 기반 가능 시간 표시)",
+        tag: "환자 · 본인 데이터만"
+      },
+      {
+        url: medirailNurseImg,
+        title: "간호사 권한 – 예약 현황",
+        description: "간호사 계정은 상담·환자·예약 현황 메뉴를 사용하며 전체 환자의 예약 일정을 확인하지만, SOAP 노트 승인 메뉴는 노출되지 않는 화면",
+        tag: "간호사 · 예약 조회"
+      },
+      {
+        url: medirailAdminAuditImg,
+        title: "원무 권한 – 감사 로그",
+        description: "원무 계정은 예약 관리·인적사항·감사 로그만 접근하고 임상 정보는 볼 수 없으며, 로그인·예약·AI 대화(사용 도구와 안전장치 이벤트)가 입력 원문 없이 기록되는 감사 로그 화면",
+        tag: "원무 · 감사 로그"
+      },
+      {
+        url: medirailSuperUsersImg,
+        title: "시스템 관리자 – 사용자·권한 관리",
+        description: "역할별 계정과 상태를 관리하고 변경 즉시 감사 로그에 기록하는 화면. 최상위 관리자 부여는 API로 불가하고 자기 자신·데모 계정은 변경할 수 없으며 가입자의 아이디·이름은 마스킹 표시",
+        tag: "관리자 · RBAC"
+      },
+      {
+        url: medirailSuperBreakglassImg,
+        title: "시스템 관리자 – 임상 기록 열람 (break-glass)",
+        description: "시스템 관리자도 임상 기록은 기본적으로 볼 수 없고, 환자 번호와 열람 사유(10~300자)를 남겨야만 열람하며 누가·언제·어떤 환자를·왜 열람했는지 감사 로그에 기록되는 화면",
+        tag: "관리자 · break-glass"
       }
     ]
   },
